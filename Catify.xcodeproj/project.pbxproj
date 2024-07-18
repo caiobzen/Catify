@@ -18,6 +18,7 @@
 		BA9D78672C49538F00A8A1C7 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BA9D78662C49538F00A8A1C7 /* Release.xcconfig */; };
 		BAA0F4222C49C3D0002FF10F /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F4212C49C3D0002FF10F /* AppCore.swift */; };
 		BAA0F4242C49C442002FF10F /* AppCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F4232C49C442002FF10F /* AppCoreTests.swift */; };
+		BAA0F4272C49C773002FF10F /* CatifyUI in Frameworks */ = {isa = PBXBuildFile; productRef = BAA0F4262C49C773002FF10F /* CatifyUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA0F4272C49C773002FF10F /* CatifyUI in Frameworks */,
 				BA9D78632C494DE200A8A1C7 /* CatifyAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +160,7 @@
 			name = Catify;
 			packageProductDependencies = (
 				BA9D78622C494DE200A8A1C7 /* CatifyAPI */,
+				BAA0F4262C49C773002FF10F /* CatifyUI */,
 			);
 			productName = Catify;
 			productReference = BA9D78322C494D9B00A8A1C7 /* Catify.app */;
@@ -233,6 +236,7 @@
 			mainGroup = BA9D78292C494D9B00A8A1C7;
 			packageReferences = (
 				BA9D78612C494DE200A8A1C7 /* XCLocalSwiftPackageReference "libs/CatifyAPI" */,
+				BAA0F4252C49C773002FF10F /* XCLocalSwiftPackageReference "libs/CatifyUI" */,
 			);
 			productRefGroup = BA9D78332C494D9B00A8A1C7 /* Products */;
 			projectDirPath = "";
@@ -614,12 +618,20 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = libs/CatifyAPI;
 		};
+		BAA0F4252C49C773002FF10F /* XCLocalSwiftPackageReference "libs/CatifyUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = libs/CatifyUI;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		BA9D78622C494DE200A8A1C7 /* CatifyAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CatifyAPI;
+		};
+		BAA0F4262C49C773002FF10F /* CatifyUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CatifyUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
