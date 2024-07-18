@@ -20,12 +20,12 @@ final class CatifyAPITests: XCTestCase {
             quantity: 10,
             page: 0,
             limit: 1,
-            hasBreeds: true,
+            hasBreeds: false,
             includeBreeds: true
         )
         
         // Assert
-        XCTAssertEqual(urlSessionSpy.request?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=true&include_breeds=true&quantity=10&page=0&limit=1")
+        XCTAssertEqual(urlSessionSpy.request?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=false&include_breeds=true&quantity=10&page=0&limit=1")
         XCTAssertNotNil(urlSessionSpy.request?.value(forHTTPHeaderField: "x-api-key"))
         XCTAssertNotNil(urlSessionSpy.request?.value(forHTTPHeaderField: "Content-Type"))
     }
