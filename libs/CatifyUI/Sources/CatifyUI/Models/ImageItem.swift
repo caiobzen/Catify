@@ -1,13 +1,7 @@
 import Foundation
 
-public struct ImageItem {
-    let id: String
-    let text: String
-    let imageURL: URL
-    
-    public init(id: String, text: String, imageURL: URL) {
-        self.id = id
-        self.text = text
-        self.imageURL = imageURL
-    }
+public protocol ImageItem {
+    var id: String { get }
+    var text: String { get }
+    var imageURL: URL { get }
 }

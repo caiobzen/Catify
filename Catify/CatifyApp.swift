@@ -12,12 +12,19 @@ struct CatifyApp: App {
         
         WindowGroup {
             ImageItemListView(imageItems: [
-                ImageItem(
-                    id: "foo",
-                    text: "Cat",
-                    imageURL: URL(string: "https://cdn2.thecatapi.com/images/xBR2jSIG7.jpg")!
-                )
+                CatImage(id: "",
+                         url: URL(string: "https://cdn2.thecatapi.com/images/xBR2jSIG7.jpg")!,
+                         width: 100,
+                         height: 100, 
+                         breeds: [
+                            Breed(id: "", name: "cat", origin: "", temperament: "", description: "")
+                         ])
             ])
         }
     }
+}
+
+extension CatImage: ImageItem {
+    public var imageURL: URL { self.url }
+    public var text: String { self.breeds.first?.name ?? "cat" }
 }
