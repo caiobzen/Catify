@@ -6,7 +6,10 @@ class AppCoreTests: XCTestCase {
     
     func test_onAppCoreCreation_itConfiguresAnAPIClient() {
         
+        // Arrange
         let core = AppCore()
+        
+        // Act, Assert
         XCTAssertNoThrow(core.apiClient)
     }
 }

@@ -11,10 +11,14 @@ struct CatifyApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                Text("Cats")
-                    .tabItem {
-                        Label("Cats", systemImage: "cat")
-                    }
+                CatsListView(
+                    viewModel: CatsListViewModel(
+                        clientAPI: core.apiClient
+                    )
+                )
+                .tabItem {
+                    Label("Cats", systemImage: "cat")
+                }
                 
                 Text("Favotites")
                     .tabItem {

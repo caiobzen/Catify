@@ -19,6 +19,10 @@
 		BAA0F4242C49C442002FF10F /* AppCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F4232C49C442002FF10F /* AppCoreTests.swift */; };
 		BAA0F4272C49C773002FF10F /* CatifyUI in Frameworks */ = {isa = PBXBuildFile; productRef = BAA0F4262C49C773002FF10F /* CatifyUI */; };
 		BAA0F42A2C49CE4B002FF10F /* CatImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F4292C49CE4B002FF10F /* CatImage+Extensions.swift */; };
+		BAA0F42D2C49CFB4002FF10F /* CatsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F42C2C49CFB4002FF10F /* CatsListView.swift */; };
+		BAA0F4302C49D006002FF10F /* CatsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F42F2C49D006002FF10F /* CatsListViewModelTests.swift */; };
+		BAA0F4322C49D02C002FF10F /* CatsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F4312C49D02C002FF10F /* CatsListViewModel.swift */; };
+		BAA0F4352C49D325002FF10F /* CatifyAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F4342C49D325002FF10F /* CatifyAPIMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		BAA0F4212C49C3D0002FF10F /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		BAA0F4232C49C442002FF10F /* AppCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoreTests.swift; sourceTree = "<group>"; };
 		BAA0F4292C49CE4B002FF10F /* CatImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatImage+Extensions.swift"; sourceTree = "<group>"; };
+		BAA0F42C2C49CFB4002FF10F /* CatsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListView.swift; sourceTree = "<group>"; };
+		BAA0F42F2C49D006002FF10F /* CatsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListViewModelTests.swift; sourceTree = "<group>"; };
+		BAA0F4312C49D02C002FF10F /* CatsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListViewModel.swift; sourceTree = "<group>"; };
+		BAA0F4342C49D325002FF10F /* CatifyAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyAPIMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 			children = (
 				BA9D78682C4957BA00A8A1C7 /* Info.plist */,
 				BAA0F4282C49CE3A002FF10F /* Extensions */,
+				BAA0F42B2C49CF8E002FF10F /* Features */,
 				BAA0F4212C49C3D0002FF10F /* AppCore.swift */,
 				BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */,
 				BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */,
@@ -128,6 +137,8 @@
 		BA9D78472C494DA000A8A1C7 /* CatifyTests */ = {
 			isa = PBXGroup;
 			children = (
+				BAA0F4332C49D31A002FF10F /* Mocks */,
+				BAA0F42E2C49CFE5002FF10F /* Featutes */,
 				BA9D78482C494DA000A8A1C7 /* CatifyTests.swift */,
 				BAA0F4232C49C442002FF10F /* AppCoreTests.swift */,
 			);
@@ -148,6 +159,31 @@
 				BAA0F4292C49CE4B002FF10F /* CatImage+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BAA0F42B2C49CF8E002FF10F /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				BAA0F42C2C49CFB4002FF10F /* CatsListView.swift */,
+				BAA0F4312C49D02C002FF10F /* CatsListViewModel.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		BAA0F42E2C49CFE5002FF10F /* Featutes */ = {
+			isa = PBXGroup;
+			children = (
+				BAA0F42F2C49D006002FF10F /* CatsListViewModelTests.swift */,
+			);
+			path = Featutes;
+			sourceTree = "<group>";
+		};
+		BAA0F4332C49D31A002FF10F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BAA0F4342C49D325002FF10F /* CatifyAPIMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +328,9 @@
 			files = (
 				BAA0F4222C49C3D0002FF10F /* AppCore.swift in Sources */,
 				BAA0F42A2C49CE4B002FF10F /* CatImage+Extensions.swift in Sources */,
+				BAA0F4322C49D02C002FF10F /* CatsListViewModel.swift in Sources */,
 				BA9D78362C494D9B00A8A1C7 /* CatifyApp.swift in Sources */,
+				BAA0F42D2C49CFB4002FF10F /* CatsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA0F4302C49D006002FF10F /* CatsListViewModelTests.swift in Sources */,
 				BAA0F4242C49C442002FF10F /* AppCoreTests.swift in Sources */,
+				BAA0F4352C49D325002FF10F /* CatifyAPIMock.swift in Sources */,
 				BA9D78492C494DA000A8A1C7 /* CatifyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

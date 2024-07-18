@@ -21,7 +21,6 @@ public struct CatifyAPIClient: CatifyAPIProtocol {
     }
     
     public func fetchCatImages(size: ImageSize,
-                               quantity: Int = 1,
                                page: Int = 1,
                                limit: Int = 1,
                                hasBreeds: Bool = true,
@@ -31,7 +30,6 @@ public struct CatifyAPIClient: CatifyAPIProtocol {
             URLQueryItem(name: Constants.size, value: size.rawValue),
             URLQueryItem(name: Constants.hasBreeds, value: hasBreeds.description),
             URLQueryItem(name: Constants.includeBreeds, value: includeBreeds.description),
-            URLQueryItem(name: Constants.quantity, value: quantity.description),
             URLQueryItem(name: Constants.page, value: page.description),
             URLQueryItem(name: Constants.limit, value: limit.description)
         ]

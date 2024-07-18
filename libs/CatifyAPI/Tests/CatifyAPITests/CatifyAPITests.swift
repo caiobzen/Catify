@@ -17,7 +17,6 @@ final class CatifyAPITests: XCTestCase {
         // Act
         _ = try? await client.fetchCatImages(
             size: .med,
-            quantity: 10,
             page: 0,
             limit: 1,
             hasBreeds: false,
@@ -25,7 +24,7 @@ final class CatifyAPITests: XCTestCase {
         )
         
         // Assert
-        XCTAssertEqual(urlSessionMock.urlRequest?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=false&include_breeds=true&quantity=10&page=0&limit=1")
+        XCTAssertEqual(urlSessionMock.urlRequest?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=false&include_breeds=true&&page=0&limit=1")
         XCTAssertNotNil(urlSessionMock.urlRequest?.value(forHTTPHeaderField: "x-api-key"))
         XCTAssertNotNil(urlSessionMock.urlRequest?.value(forHTTPHeaderField: "Content-Type"))
     }
@@ -39,7 +38,6 @@ final class CatifyAPITests: XCTestCase {
         // Act
         let response = try? await client.fetchCatImages(
             size: .med,
-            quantity: 10,
             page: 0,
             limit: 1,
             hasBreeds: true,
