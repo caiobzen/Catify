@@ -16,6 +16,8 @@
 		BA9D78632C494DE200A8A1C7 /* CatifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = BA9D78622C494DE200A8A1C7 /* CatifyAPI */; };
 		BA9D78652C49533E00A8A1C7 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BA9D78642C49533E00A8A1C7 /* Debug.xcconfig */; };
 		BA9D78672C49538F00A8A1C7 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BA9D78662C49538F00A8A1C7 /* Release.xcconfig */; };
+		BAA0F4222C49C3D0002FF10F /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F4212C49C3D0002FF10F /* AppCore.swift */; };
+		BAA0F4242C49C442002FF10F /* AppCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F4232C49C442002FF10F /* AppCoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		BA9D78642C49533E00A8A1C7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		BA9D78662C49538F00A8A1C7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		BA9D78682C4957BA00A8A1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BAA0F4212C49C3D0002FF10F /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
+		BAA0F4232C49C442002FF10F /* AppCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				BA9D78682C4957BA00A8A1C7 /* Info.plist */,
+				BAA0F4212C49C3D0002FF10F /* AppCore.swift */,
 				BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */,
 				BA9D78372C494D9B00A8A1C7 /* ContentView.swift */,
 				BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */,
@@ -122,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				BA9D78482C494DA000A8A1C7 /* CatifyTests.swift */,
+				BAA0F4232C49C442002FF10F /* AppCoreTests.swift */,
 			);
 			path = CatifyTests;
 			sourceTree = "<group>";
@@ -272,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA0F4222C49C3D0002FF10F /* AppCore.swift in Sources */,
 				BA9D78382C494D9B00A8A1C7 /* ContentView.swift in Sources */,
 				BA9D78362C494D9B00A8A1C7 /* CatifyApp.swift in Sources */,
 			);
@@ -281,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA0F4242C49C442002FF10F /* AppCoreTests.swift in Sources */,
 				BA9D78492C494DA000A8A1C7 /* CatifyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
