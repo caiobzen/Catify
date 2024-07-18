@@ -25,7 +25,7 @@ public struct CatifyAPIClient: CatifyAPIProtocol {
                                page: Int = 1,
                                limit: Int = 1,
                                hasBreeds: Bool = true,
-                               includeBreeds: Bool = true) async throws -> FetchCatsResponse {
+                               includeBreeds: Bool = true) async throws -> [CatImage] {
     
         let queryItems = [
             URLQueryItem(name: Constants.size, value: size.rawValue),
@@ -42,7 +42,7 @@ public struct CatifyAPIClient: CatifyAPIProtocol {
                                                           queryItems: queryItems)
             let result = try await urlSession.data(for: urlRequest,
                                                    delegate: nil)
-            let response = try JSONDecoder().decode(FetchCatsResponse.self,
+            let response = try JSONDecoder().decode([CatImage].self,
                                                     from: result.0)
             return response
         } catch {

@@ -1,0 +1,21 @@
+[
+    {
+        "id": "cat id",
+        "url": "https://cdn2.thecatapi.com/images/xBR2jSIG7.jpg",
+        "width": 2048,
+        "height": 2048,
+        "breeds": [
+            {
+                "weight": {
+                    "imperial": "8 - 25",
+                    "metric":" 4 - 11"
+                },
+                "id": "breed id",
+                "name": "breed name",
+                "temperament": "breed temperament",
+                "origin": "breed origin",
+                "description": "breed description",
+            }
+        ]
+    }
+]

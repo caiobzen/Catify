@@ -3,16 +3,16 @@ import XCTest
 
 final class CatifyAPITests: XCTestCase {
     
-    var urlSessionSpy: URLSessionSpy!
+    var urlSessionMock: URLSessionMock!
     
     override func setUp() {
-        urlSessionSpy = URLSessionSpy()
+        urlSessionMock = URLSessionMock()
     }
     
-    func test_fetchCatImages_ProducesExpectedRequest() async {
+    func test_fetchCatImages_producesExpectedRequest() async {
 
         // Arrange
-        let client = CatifyAPIClient(apiKey: "", urlSession: urlSessionSpy)
+        let client = CatifyAPIClient(apiKey: "", urlSession: urlSessionMock)
 
         // Act
         _ = try? await client.fetchCatImages(
@@ -25,22 +25,44 @@ final class CatifyAPITests: XCTestCase {
         )
         
         // Assert
-        XCTAssertEqual(urlSessionSpy.request?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=false&include_breeds=true&quantity=10&page=0&limit=1")
-        XCTAssertNotNil(urlSessionSpy.request?.value(forHTTPHeaderField: "x-api-key"))
-        XCTAssertNotNil(urlSessionSpy.request?.value(forHTTPHeaderField: "Content-Type"))
+        XCTAssertEqual(urlSessionMock.urlRequest?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=false&include_breeds=true&quantity=10&page=0&limit=1")
+        XCTAssertNotNil(urlSessionMock.urlRequest?.value(forHTTPHeaderField: "x-api-key"))
+        XCTAssertNotNil(urlSessionMock.urlRequest?.value(forHTTPHeaderField: "Content-Type"))
     }
-}
-
-// MARK: - Spy
-class URLSessionSpy: URLSessionProtocol {
     
-    var request: URLRequest?
-
-    func data(for request: URLRequest,
-              delegate: (any URLSessionTaskDelegate)?) async throws -> (Data, URLResponse) {
+    func test_fetchCatImages_decodesWithSuccess() async {
         
-        self.request = request
-
-        return (Data(), URLResponse())
+        // Arrange
+        let client = CatifyAPIClient(apiKey: "", urlSession: urlSessionMock)
+        urlSessionMock.mockData = dataFromJsonFile(named: "searchResponseMock")
+        
+        // Act
+        let response = try? await client.fetchCatImages(
+            size: .med,
+            quantity: 10,
+            page: 0,
+            limit: 1,
+            hasBreeds: true,
+            includeBreeds: true
+        )
+        
+        // Assert
+        XCTAssertEqual(
+            response?.first,
+            CatImage(
+                id: "cat id",
+                url: URL(string: "https://cdn2.thecatapi.com/images/xBR2jSIG7.jpg")!,
+                width: 2048,
+                height: 2048,
+                breeds: [
+                    Breed(
+                        id: "breed id",
+                        name: "breed name",
+                        origin: "breed origin",
+                        temperament: "breed temperament",
+                        description: "breed description"
+                    )
+                ])
+            )
     }
 }

@@ -7,5 +7,5 @@ public protocol CatifyAPIProtocol {
                         page: Int,
                         limit: Int,
                         hasBreeds: Bool,
-                        includeBreeds: Bool) async throws -> FetchCatsResponse
+                        includeBreeds: Bool) async throws -> [CatImage]
 }

@@ -21,6 +21,10 @@ let package = Package(
             name: "CatifyAPI"),
         .testTarget(
             name: "CatifyAPITests",
-            dependencies: ["CatifyAPI"]),
+            dependencies: ["CatifyAPI"],
+            resources: [
+                .process("MockResponses")
+            ]
+        ),
     ]
 )
