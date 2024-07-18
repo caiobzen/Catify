@@ -9,6 +9,18 @@ struct CatifyApp: App {
     private let core = AppCore()
     
     var body: some Scene {
-        WindowGroup { }
+        WindowGroup {
+            TabView {
+                Text("Cats")
+                    .tabItem {
+                        Label("Cats", systemImage: "cat")
+                    }
+                
+                Text("Favotites")
+                    .tabItem {
+                        Label("Favotites", systemImage: "star")
+                    }
+            }
+        }
     }
 }
