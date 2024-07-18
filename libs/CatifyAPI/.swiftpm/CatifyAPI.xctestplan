@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "4D6E6F30-75A7-47F4-B1A3-049D1F9A7972",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "CatifyAPITests",
+        "name" : "CatifyAPITests"
+      }
+    }
+  ],
+  "version" : 1
+}
