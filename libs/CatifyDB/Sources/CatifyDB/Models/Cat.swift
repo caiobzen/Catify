@@ -7,6 +7,7 @@ public class Cat: Identifiable {
     @Attribute(.unique)
     public let id: String
     public let image: URL
+    @Attribute(.unique)
     public let breedName: String
     public let origin: String
     public let temperament: String
