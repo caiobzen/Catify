@@ -7,7 +7,7 @@ TODO List:
     a. Cat image;
     b. Breed name.
     
-[ ] The cat breeds screen should contain a search bar to filter the list by breed name.
+[x] The cat breeds screen should contain a search bar to filter the list by breed name.
 
 [ ] The cat breeds screen should contain a button to mark the breed as favourite.
 
