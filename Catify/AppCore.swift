@@ -1,5 +1,6 @@
 import Foundation
 import CatifyAPI
+import CatifyDB
 
 struct AppCore {
 
@@ -11,5 +12,13 @@ struct AppCore {
         let apiKey = Bundle.main.infoDictionary?[Constants.catsAPIKey] as? String
         guard let apiKey else { fatalError("Missing Cats API key") }
         return CatifyAPIClient(apiKey: apiKey)
+    }()
+    
+    var dataBase: CatifyDataBaseProtocol = {
+        do {
+            return try CatifyDataBase()
+        } catch {
+            fatalError("Failed to initialize CatifyDataBase: \(error)")
+        }
     }()
 }

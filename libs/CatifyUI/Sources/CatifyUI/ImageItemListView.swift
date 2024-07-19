@@ -2,14 +2,18 @@ import SwiftUI
 
 public struct ImageItemListView: View {
     
+    public var didToggleFavorite: ((String) -> ())? = nil
+    
     private enum Constants {
         static let spacing: CGFloat = 20
     }
     
     private let imageItems: [ImageItem]
     
-    public init(imageItems: [ImageItem]) {
+    public init(imageItems: [ImageItem],
+                didToggleFavorite: ((String) -> ())? = nil) {
         self.imageItems = imageItems
+        self.didToggleFavorite = didToggleFavorite
     }
     
     let columns: [GridItem] = [
@@ -25,7 +29,11 @@ public struct ImageItemListView: View {
                 ForEach(imageItems, id: \.id) { item in
                     ZStack {
                         ImageItemView(item: item)
-                            .overlay { FavoriteIconOverlay(isFavorite: .constant(false)) }
+                            .overlay {
+                                FavoriteIconOverlay(isFavorite: item.isFavorite) {
+                                    didToggleFavorite?(item.id)
+                                }
+                            }
                     }
                 }
             }

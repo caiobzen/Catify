@@ -14,14 +14,15 @@ struct FavoriteIconOverlay: View {
         }
     }
     
-    @Binding var isFavorite: Bool
+    let isFavorite: Bool
+    public var didToggleFavotite: (() -> ())? = nil
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button(action: {
-                    isFavorite.toggle()
+                    didToggleFavotite?()
                 }) {
                     Image(systemName: isFavorite ? Constants.Assets.starFill : Constants.Assets.star)
                         .resizable()
@@ -38,5 +39,5 @@ struct FavoriteIconOverlay: View {
 }
 
 #Preview {
-    FavoriteIconOverlay(isFavorite: .constant(true))
+    FavoriteIconOverlay(isFavorite: true) { }
 }

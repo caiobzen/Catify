@@ -1,16 +1,19 @@
 import XCTest
 @testable import Catify
-@testable import CatifyUI
 @testable import CatifyAPI
+@testable import CatifyDB
+@testable import CatifyUI
 
 final class CatsListViewModelTests: XCTestCase {
     
     private var apiMock: CatifyAPIMock!
+    private var dataBaseMock: CatifyDataBaseMock!
     private var viewModel: CatsListViewModel!
     
     override func setUp() {
         apiMock = CatifyAPIMock()
-        viewModel = CatsListViewModel(clientAPI: apiMock)
+        dataBaseMock = CatifyDataBaseMock()
+        viewModel = CatsListViewModel(clientAPI: apiMock, dataBase: dataBaseMock)
     }
     
     func test_OnInitViewModelHasAnEmptyListOfImageItems() {
@@ -39,6 +42,7 @@ final class CatsListViewModelTests: XCTestCase {
         
         // Arrange
         viewModel = CatsListViewModel(clientAPI: apiMock,
+                                      dataBase: dataBaseMock,
                                       imageItems: imageItemsMock)
         
         // Act
@@ -52,6 +56,7 @@ final class CatsListViewModelTests: XCTestCase {
         
         // Arrange
         viewModel = CatsListViewModel(clientAPI: apiMock,
+                                      dataBase: dataBaseMock,
                                       imageItems: imageItemsMock)
         
         // Act
@@ -64,28 +69,20 @@ final class CatsListViewModelTests: XCTestCase {
 
 extension CatsListViewModelTests {
     
-    var imageItemsMock: [ImageItem] {  [
-        CatImage(id: "",
-                 url: URL(string: "http://cat.com")!,
-                 width: 0,
-                 height: 0,
-                 breeds: [
-                    .init(id: "",
-                          name: "foo",
-                          origin: "",
-                          temperament: "",
-                          description: "")
-                 ]),
-        CatImage(id: "",
-                 url: URL(string: "http://cat.com")!,
-                 width: 0,
-                 height: 0,
-                 breeds: [
-                    .init(id: "",
-                          name: "bar",
-                          origin: "",
-                          temperament: "",
-                          description: "")
-                 ])
+    var imageItemsMock: [ImageItem] {[
+        Cat(id: "1",
+            image: URL(string: "http://cat.com")!,
+            breedName: "foo",
+            origin: "",
+            temperament: "",
+            desc: "",
+            isFavorite: false),
+        Cat(id: "2",
+            image: URL(string: "http://cat.com")!,
+            breedName: "bar",
+            origin: "",
+            temperament: "",
+            desc: "",
+            isFavorite: true)
     ]}
 }

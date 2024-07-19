@@ -13,7 +13,8 @@ struct CatifyApp: App {
             TabView {
                 CatsListView(
                     viewModel: CatsListViewModel(
-                        clientAPI: core.apiClient
+                        clientAPI: core.apiClient,
+                        dataBase: core.dataBase
                     )
                 )
                 .tabItem {

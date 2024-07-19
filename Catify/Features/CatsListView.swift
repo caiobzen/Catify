@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import CatifyAPI
+import CatifyDB
 import CatifyUI
 
 struct CatsListView: View {
@@ -17,10 +18,9 @@ struct CatsListView: View {
                 get: { viewModel.searchQuery } ,
                 set: { viewModel.searchQuery = $0 })
             )
-            ImageItemListView(imageItems: viewModel.imageItems)
-        }
-        .onAppear {
-            Task { await viewModel.fetchData() }
+            ImageItemListView(imageItems: viewModel.imageItems) { id in
+                viewModel.toggleFavorite(for: id)
+            }
         }
     }
 }
@@ -28,7 +28,8 @@ struct CatsListView: View {
 #Preview {
     CatsListView(
         viewModel: CatsListViewModel(
-            clientAPI: CatifyAPIClient(apiKey: "")
+            clientAPI: CatifyAPIClient(apiKey: ""),
+            dataBase: try! CatifyDataBase()
         )
     )
 }
