@@ -13,7 +13,14 @@ struct ImageItemView: View {
             AsyncImage(url: item.imageURL) { image in
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFill()
+                    .frame(
+                        width: Constants.imageSize.width,
+                        height: Constants.imageSize.height
+                    )
+                    .clipped()
+                    .border(.gray, width: 1)
+                    .cornerRadius(10)
             } placeholder: {
                 ProgressView()
             }
