@@ -22,8 +22,11 @@ public struct ImageItemListView: View {
         ScrollView {
             LazyVGrid(columns: columns,
                       spacing: Constants.spacing) {
-                ForEach(imageItems, id: \.id) {
-                    ImageItemView(item: $0)
+                ForEach(imageItems, id: \.id) { item in
+                    ZStack {
+                        ImageItemView(item: item)
+                            .overlay { FavoriteIconOverlay(isFavorite: .constant(false)) }
+                    }
                 }
             }
             .padding()
