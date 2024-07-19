@@ -12,10 +12,16 @@ struct CatsListView: View {
     }
     
     var body: some View {
-        ImageItemListView(imageItems: viewModel.imageItems)
-            .onAppear {
-                Task { await viewModel.fetchData() }
-            }
+        VStack {
+            SearchBar(queryString: Binding(
+                get: { viewModel.searchQuery } ,
+                set: { viewModel.searchQuery = $0 })
+            )
+            ImageItemListView(imageItems: viewModel.imageItems)
+        }
+        .onAppear {
+            Task { await viewModel.fetchData() }
+        }
     }
 }
 
