@@ -42,7 +42,7 @@ final class CatsListViewModelTests: XCTestCase {
                                       imageItems: imageItemsMock)
         
         // Act
-        viewModel.filterItems(queryString: "")
+        viewModel.searchQuery = ""
         
         // Assert
         XCTAssertEqual(viewModel.imageItems.count, 2)
@@ -55,7 +55,7 @@ final class CatsListViewModelTests: XCTestCase {
                                       imageItems: imageItemsMock)
         
         // Act
-        viewModel.filterItems(queryString: "foo")
+        viewModel.searchQuery = "foo"
         
         // Assert
         XCTAssertEqual(viewModel.imageItems.count, 1)
