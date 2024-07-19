@@ -4,7 +4,6 @@ public struct ImageItemListView: View {
     
     private enum Constants {
         static let spacing: CGFloat = 20
-        static let imageSize: CGSize = .init(width: 100, height: 100)
     }
     
     private let imageItems: [ImageItem]
@@ -23,23 +22,8 @@ public struct ImageItemListView: View {
         ScrollView {
             LazyVGrid(columns: columns,
                       spacing: Constants.spacing) {
-                ForEach(imageItems, id: \.id) { item in
-                    VStack {
-                        AsyncImage(url: item.imageURL) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(
-                            width: Constants.imageSize.width,
-                            height: Constants.imageSize.height
-                        )
-                        
-                        Text(item.text)
-                            .frame(maxWidth: .infinity)
-                    }
+                ForEach(imageItems, id: \.id) {
+                    ImageItemView(item: $0)
                 }
             }
             .padding()
