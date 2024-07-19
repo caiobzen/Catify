@@ -6,25 +6,38 @@ import CatifyAPI
 class CatsListViewModel {
     
     private let clientAPI: CatifyAPIProtocol
-    init(clientAPI: CatifyAPIProtocol, 
+    private var allImageItems: [ImageItem] = [] // Store all items fetched from API
+    private(set) var imageItems: [ImageItem] = [] // Store filtered items to be displayed
+    
+    init(clientAPI: CatifyAPIProtocol,
          imageItems: [ImageItem] = []) {
         self.clientAPI = clientAPI
-        self.imageItems = imageItems
+        self.allImageItems = imageItems
+        self.imageItems = allImageItems
     }
-    
-    private(set) var imageItems: [ImageItem] = []
     
     func fetchData() async {
         do {
-            imageItems = try await clientAPI.fetchCatImages(
+            allImageItems = try await clientAPI.fetchCatImages(
                 size: .med,
                 page: 1,
                 limit: 10,
                 hasBreeds: true,
                 includeBreeds: true
             )
+            imageItems = allImageItems
         } catch {
             print("error \(error.localizedDescription)")
+        }
+    }
+    
+    func filterItems(queryString: String) {
+        if queryString.isEmpty {
+            imageItems = allImageItems
+        } else {
+            imageItems = allImageItems.filter {
+                $0.text.contains(queryString)
+            }
         }
     }
 }
