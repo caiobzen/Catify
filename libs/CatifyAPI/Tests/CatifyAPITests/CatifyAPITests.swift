@@ -3,18 +3,17 @@ import XCTest
 
 final class CatifyAPITests: XCTestCase {
     
-    var urlSessionMock: URLSessionMock!
+    private var urlSessionMock: URLSessionMock!
+    private var client: CatifyAPIClient!
     
     override func setUp() {
         urlSessionMock = URLSessionMock()
+        client = CatifyAPIClient(apiKey: "", urlSession: urlSessionMock)
     }
     
     func test_fetchCatImages_producesExpectedRequest() async {
 
-        // Arrange
-        let client = CatifyAPIClient(apiKey: "", urlSession: urlSessionMock)
-
-        // Act
+        // Arrange, Act
         _ = try? await client.fetchCatImages(
             size: .med,
             page: 0,
@@ -24,7 +23,7 @@ final class CatifyAPITests: XCTestCase {
         )
         
         // Assert
-        XCTAssertEqual(urlSessionMock.urlRequest?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=false&include_breeds=true&&page=0&limit=1")
+        XCTAssertEqual(urlSessionMock.urlRequest?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=false&include_breeds=true&page=0&limit=1")
         XCTAssertNotNil(urlSessionMock.urlRequest?.value(forHTTPHeaderField: "x-api-key"))
         XCTAssertNotNil(urlSessionMock.urlRequest?.value(forHTTPHeaderField: "Content-Type"))
     }
@@ -32,7 +31,6 @@ final class CatifyAPITests: XCTestCase {
     func test_fetchCatImages_decodesWithSuccess() async {
         
         // Arrange
-        let client = CatifyAPIClient(apiKey: "", urlSession: urlSessionMock)
         urlSessionMock.mockData = dataFromJsonFile(named: "searchResponseMock")
         
         // Act
