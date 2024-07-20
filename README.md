@@ -9,7 +9,7 @@ TODO List:
     
 [x] The cat breeds screen should contain a search bar to filter the list by breed name.
 
-[ ] The cat breeds screen should contain a button to mark the breed as favourite.
+[x] The cat breeds screen should contain a button to mark the breed as favourite.
 
 [ ] Implement a new screen to show the breeds marked as favourites.
     a. Show the average lifespan of all the favourite breeds (you can use either
