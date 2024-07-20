@@ -13,6 +13,7 @@
                 "id": "breed id",
                 "name": "breed name",
                 "temperament": "breed temperament",
+                "life_span": "breed lifespan",
                 "origin": "breed origin",
                 "description": "breed description",
             }

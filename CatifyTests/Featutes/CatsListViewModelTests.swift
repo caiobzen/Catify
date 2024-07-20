@@ -133,6 +133,7 @@ extension CatsListViewModelTests {
     struct ImageItemMock: ImageItem {
         var id: String
         var text: String
+        var detailText: String
         var imageURL: URL
         var isFavorite: Bool
     }
@@ -140,10 +141,12 @@ extension CatsListViewModelTests {
     var imageItemsMock: [ImageItem] {[
         ImageItemMock(id: "1",
             text: "foo",
+            detailText: "foo2",
             imageURL: URL(string: "http://cat.com")!,
             isFavorite: false),
         ImageItemMock(id: "2",
             text: "bar",
+            detailText: "bar2",
             imageURL: URL(string: "http://cat.com")!,
             isFavorite: true),
     ]}

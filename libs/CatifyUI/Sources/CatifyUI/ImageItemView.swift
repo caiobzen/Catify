@@ -7,6 +7,7 @@ struct ImageItemView: View {
     }
     
     let item: ImageItem
+    let showDetailText: Bool
 
     var body: some View {
         VStack {
@@ -31,6 +32,11 @@ struct ImageItemView: View {
             
             Text(item.text)
                 .frame(maxWidth: .infinity)
+            
+            if showDetailText {
+                Text(item.detailText)
+                    .frame(maxWidth: .infinity)
+            }
         }
     }
 }

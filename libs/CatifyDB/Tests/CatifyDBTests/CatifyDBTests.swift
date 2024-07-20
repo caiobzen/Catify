@@ -3,10 +3,10 @@ import XCTest
 
 final class CatifyDBTests: XCTestCase {
     
-    var catifyDB: CatifyDB!
+    var catifyDB: CatifyDataBase!
     
     override func setUpWithError() throws {
-        catifyDB = try CatifyDB()
+        catifyDB = try CatifyDataBase()
     }
     
     @MainActor
@@ -80,6 +80,7 @@ extension XCTestCase {
             breedName: "",
             origin: "",
             temperament: "",
+            lifespan: "",
             desc: "",
             isFavorite: false
         )

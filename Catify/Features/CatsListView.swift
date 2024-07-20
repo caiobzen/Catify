@@ -8,8 +8,7 @@ struct CatsListView: View {
     
     private var viewModel: CatsListViewModel
     
-    init(viewModel: CatsListViewModel,
-         filterFavorites: Bool = false) {
+    init(viewModel: CatsListViewModel) {
         self.viewModel = viewModel
     }
     
@@ -19,9 +18,12 @@ struct CatsListView: View {
                 get: { viewModel.searchQuery } ,
                 set: { viewModel.searchQuery = $0 })
             )
-            ImageItemListView(imageItems: viewModel.imageItems,
-                              didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
-                              didShowLastItem: { fetchData() })
+            ImageItemListView(
+                imageItems: viewModel.imageItems,
+                didShowLastItem: { fetchData() },
+                showDetailText: viewModel.filter == .favorites,
+                didToggleFavorite: { viewModel.toggleFavorite(for: $0) }
+            )
             .onAppear(perform: fetchData)
             if viewModel.isFetching {
                 

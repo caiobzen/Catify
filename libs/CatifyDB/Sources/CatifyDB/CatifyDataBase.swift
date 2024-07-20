@@ -32,8 +32,17 @@ public class CatifyDataBase: CatifyDataBaseProtocol {
     
     @MainActor
     public func insert(cat: Cat) {
+        
+        if fetchCats().contains(where: { $0.id == cat.id }) {
+            return
+        }
+        
         modelContainer.mainContext.insert(cat)
-        try? modelContainer.mainContext.save()
+        do {
+            try modelContainer.mainContext.save()
+        } catch {
+            print("Failed to save context: \(error)")
+        }
     }
     
     @MainActor

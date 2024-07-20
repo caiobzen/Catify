@@ -7,10 +7,10 @@ public class Cat: Identifiable {
     @Attribute(.unique)
     public let id: String
     public let image: URL?
-    @Attribute(.unique)
     public let breedName: String?
     public let origin: String?
     public let temperament: String?
+    public let lifespan: String?
     public let desc: String?
     public var isFavorite: Bool
 
@@ -19,6 +19,7 @@ public class Cat: Identifiable {
                 breedName: String?,
                 origin: String?,
                 temperament: String?,
+                lifespan: String?,
                 desc: String?,
                 isFavorite: Bool = false) {
         self.id = id
@@ -26,6 +27,7 @@ public class Cat: Identifiable {
         self.breedName = breedName ?? ""
         self.origin = origin ?? ""
         self.temperament = temperament ?? ""
+        self.lifespan = lifespan ?? ""
         self.desc = desc ?? ""
         self.isFavorite = isFavorite
     }

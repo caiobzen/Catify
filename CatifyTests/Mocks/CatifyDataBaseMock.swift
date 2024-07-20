@@ -8,6 +8,7 @@ class CatifyDataBaseMock: CatifyDataBaseProtocol {
             breedName: nil,
             origin: nil,
             temperament: nil,
+            lifespan: nil,
             desc: nil,
             isFavorite: true),
         Cat(id: "1",
@@ -15,6 +16,7 @@ class CatifyDataBaseMock: CatifyDataBaseProtocol {
             breedName: nil,
             origin: nil,
             temperament: nil,
+            lifespan: nil,
             desc: nil,
             isFavorite: false)
     ]

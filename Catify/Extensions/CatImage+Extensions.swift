@@ -4,5 +4,6 @@ import Foundation
 
 extension Cat: ImageItem {
     public var text: String { self.breedName ?? "cat breed" }
+    public var detailText: String { self.lifespan ?? "cat lifespan"}
     public var imageURL: URL { self.image ?? URL(string: "http://cat.com")! }
 }

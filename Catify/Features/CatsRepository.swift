@@ -38,6 +38,7 @@ class CatsRepository {
                 breedName: $0.breeds.first?.name ?? "cat",
                 origin: $0.breeds.first?.origin ?? "origin",
                 temperament: $0.breeds.first?.temperament ?? "temperament",
+                lifespan: $0.breeds.first?.lifespan ?? "lifespan",
                 desc: $0.breeds.first?.description ?? "",
                 isFavorite: false))
         }

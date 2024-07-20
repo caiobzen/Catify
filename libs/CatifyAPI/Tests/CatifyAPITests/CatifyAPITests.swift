@@ -56,6 +56,7 @@ final class CatifyAPITests: XCTestCase {
                         name: "breed name",
                         origin: "breed origin",
                         temperament: "breed temperament",
+                        lifespan: "breed lifespan",
                         description: "breed description"
                     )
                 ])

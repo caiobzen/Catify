@@ -10,13 +10,16 @@ public struct ImageItemListView: View {
     }
     
     private let imageItems: [ImageItem]
+    private let showDetailText: Bool
     
     public init(imageItems: [ImageItem],
-                didToggleFavorite: ((String) -> ())? = nil,
-                didShowLastItem: (() -> ())? = nil) {
+                didShowLastItem: (() -> ())? = nil,
+                showDetailText: Bool = false,
+                didToggleFavorite: ((String) -> ())? = nil) {
         self.imageItems = imageItems
-        self.didToggleFavorite = didToggleFavorite
         self.didShowLastItem = didShowLastItem
+        self.showDetailText = showDetailText
+        self.didToggleFavorite = didToggleFavorite
     }
     
     let columns: [GridItem] = [
@@ -31,7 +34,7 @@ public struct ImageItemListView: View {
                       spacing: Constants.spacing) {
                 ForEach(imageItems, id: \.id) { item in
                     ZStack {
-                        ImageItemView(item: item)
+                        ImageItemView(item: item, showDetailText: showDetailText)
                             .overlay {
                                 FavoriteIconOverlay(isFavorite: item.isFavorite) {
                                     didToggleFavorite?(item.id)

@@ -12,11 +12,11 @@ class CatsListViewModel {
     }
     
     private let repository: CatsRepository
-    private let filter: CatsFilter
     private(set) var allImageItems: [ImageItem] = []
     private(set) var imageItems: [ImageItem] = []
     private var page = 1
     var isFetching = false
+    let filter: CatsFilter
     var searchQuery = "" {
         didSet {
             filterItems()
