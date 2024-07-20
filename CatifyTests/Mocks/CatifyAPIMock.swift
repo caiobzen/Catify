@@ -11,7 +11,8 @@ class CatifyAPIMock: CatifyAPIProtocol {
         page: Int,
         limit: Int,
         hasBreeds: Bool,
-        includeBreeds: Bool
+        includeBreeds: Bool,
+        order: Order
     ) async throws -> [CatifyAPI.CatImage] {
         
         requestedPage = page
