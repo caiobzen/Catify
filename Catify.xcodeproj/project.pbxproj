@@ -49,6 +49,7 @@
 		BA21DC8A2C4AB83600659703 /* CatifyDataBaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyDataBaseMock.swift; sourceTree = "<group>"; };
 		BA21DC8C2C4AC22300659703 /* Catify.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Catify.xctestplan; sourceTree = "<group>"; };
 		BA8810B72C4C748A003C54C3 /* CatsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsRepository.swift; sourceTree = "<group>"; };
+		BA8810B92C4C7B27003C54C3 /* Catify.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Catify.xctestplan; sourceTree = "<group>"; };
 		BA9D78322C494D9B00A8A1C7 /* Catify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyApp.swift; sourceTree = "<group>"; };
 		BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		BA9D78292C494D9B00A8A1C7 = {
 			isa = PBXGroup;
 			children = (
+				BA8810B92C4C7B27003C54C3 /* Catify.xctestplan */,
 				BAA0F4362C49D625002FF10F /* README.md */,
 				BA9D78342C494D9B00A8A1C7 /* Catify */,
 				BA9D78472C494DA000A8A1C7 /* CatifyTests */,

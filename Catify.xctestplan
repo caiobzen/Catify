@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "94CA5445-39D3-4E17-8A65-6EB08DCF114A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Catify.xcodeproj",
+        "identifier" : "BA9D78432C494DA000A8A1C7",
+        "name" : "CatifyTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Catify.xcodeproj",
+        "identifier" : "BA9D784D2C494DA000A8A1C7",
+        "name" : "CatifyUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
