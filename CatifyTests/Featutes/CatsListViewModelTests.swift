@@ -13,11 +13,13 @@ final class CatsListViewModelTests: XCTestCase {
     override func setUp() {
         apiMock = CatifyAPIMock()
         dataBaseMock = CatifyDataBaseMock()
-        viewModel = CatsListViewModel(clientAPI: apiMock, dataBase: dataBaseMock)
-    }
-    
-    func test_OnInitViewModelHasAnEmptyListOfImageItems() {
-        XCTAssertTrue(viewModel.imageItems.isEmpty)
+        viewModel = CatsListViewModel(
+            repository: CatsRepository(
+                clientAPI: apiMock,
+                dataBase: dataBaseMock
+            ),
+            imageItems: imageItemsMock
+        )
     }
     
     func test_onFetchCats_imageItemsGetsPopulated() async {
@@ -39,13 +41,8 @@ final class CatsListViewModelTests: XCTestCase {
     }
     
     func test_increasePagination() async {
-        
-        // Arrange
-        viewModel = CatsListViewModel(clientAPI: apiMock,
-                                      dataBase: dataBaseMock,
-                                      imageItems: imageItemsMock)
-        
-        // Act
+
+        // Arrange, Act
         await viewModel.fetchData()
         await viewModel.fetchData()
         
@@ -55,12 +52,7 @@ final class CatsListViewModelTests: XCTestCase {
     
     func test_whenSeachingWithEmptyString_itDisplaysAllImageItems() {
         
-        // Arrange
-        viewModel = CatsListViewModel(clientAPI: apiMock,
-                                      dataBase: dataBaseMock,
-                                      imageItems: imageItemsMock)
-        
-        // Act
+        // Arrange, Act
         viewModel.searchQuery = ""
         
         // Assert
@@ -69,25 +61,26 @@ final class CatsListViewModelTests: XCTestCase {
     
     func test_whenSeachingForABreed_itFiltersTheList() {
         
-        // Arrange
-        viewModel = CatsListViewModel(clientAPI: apiMock,
-                                      dataBase: dataBaseMock,
-                                      imageItems: imageItemsMock)
-        
-        // Act
+        // Arrange, Act
         viewModel.searchQuery = "foo"
         
         // Assert
         XCTAssertEqual(viewModel.imageItems.count, 1)
     }
     
-    func test_whenFilteringByFavorites_itDisplaysSavedCatsOnly() {
+    func test_whenFilteringByFavorites_itDisplaysSavedCatsOnly() async {
         
         // Arrange, Act
-        viewModel = CatsListViewModel(clientAPI: apiMock,
-                                      dataBase: dataBaseMock,
-                                      showFavoritesOnly: true,
-                                      imageItems: imageItemsMock)
+        viewModel = CatsListViewModel(
+            repository: CatsRepository(
+                clientAPI: apiMock,
+                dataBase: dataBaseMock
+            ),
+            filter: .favorites,
+            imageItems: imageItemsMock
+        )
+        
+        await viewModel.fetchData()
         
         // Assert
         XCTAssertEqual(viewModel.imageItems.count, 1)

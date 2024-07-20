@@ -13,8 +13,10 @@ struct CatifyApp: App {
             TabView {
                 CatsListView(
                     viewModel: CatsListViewModel(
-                        clientAPI: core.apiClient,
-                        dataBase: core.dataBase
+                        repository: CatsRepository(
+                            clientAPI: core.apiClient,
+                            dataBase: core.dataBase
+                        )
                     )
                 )
                 .tabItem {
@@ -23,10 +25,8 @@ struct CatifyApp: App {
                 
                 CatsListView(
                     viewModel: CatsListViewModel(
-                        clientAPI: core.apiClient,
-                        dataBase: core.dataBase,
-                        showFavoritesOnly: true
-                    )
+                        repository: CatsRepository(clientAPI: core.apiClient, dataBase: core.dataBase),
+                        filter: .favorites)
                 )
                     .tabItem {
                         Label("Favotites", systemImage: "star")

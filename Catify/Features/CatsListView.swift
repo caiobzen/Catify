@@ -44,8 +44,10 @@ struct CatsListView: View {
 #Preview {
     CatsListView(
         viewModel: CatsListViewModel(
-            clientAPI: CatifyAPIClient(apiKey: ""),
-            dataBase: try! CatifyDataBase()
+            repository: .init(
+                clientAPI: CatifyAPIClient(apiKey: ""),
+                dataBase: try! CatifyDataBase()
+            )
         )
     )
 }

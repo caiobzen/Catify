@@ -19,7 +19,7 @@ class CatifyDataBaseMock: CatifyDataBaseProtocol {
             isFavorite: false)
     ]
     
-    func fetchCats(favoritesOnly: Bool) -> [CatifyDB.Cat] { cats.filter { $0.isFavorite } }
+    func fetchCats(favoritesOnly: Bool) -> [CatifyDB.Cat] { favoritesOnly ? cats.filter { $0.isFavorite } : cats }
     func insert(cat: CatifyDB.Cat) { cats.append(cat) }
     func deleteAllCats() { cats.removeAll() }
     func toggleFavorite(catId: String) {

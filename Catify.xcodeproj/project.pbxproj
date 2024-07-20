@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA21DC8B2C4AB83600659703 /* CatifyDataBaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21DC8A2C4AB83600659703 /* CatifyDataBaseMock.swift */; };
+		BA8810B82C4C748A003C54C3 /* CatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810B72C4C748A003C54C3 /* CatsRepository.swift */; };
 		BA9D78362C494D9B00A8A1C7 /* CatifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */; };
 		BA9D783C2C494D9D00A8A1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */; };
 		BA9D783F2C494D9D00A8A1C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9D783E2C494D9D00A8A1C7 /* Preview Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		BA21DC8A2C4AB83600659703 /* CatifyDataBaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyDataBaseMock.swift; sourceTree = "<group>"; };
 		BA21DC8C2C4AC22300659703 /* Catify.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Catify.xctestplan; sourceTree = "<group>"; };
+		BA8810B72C4C748A003C54C3 /* CatsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsRepository.swift; sourceTree = "<group>"; };
 		BA9D78322C494D9B00A8A1C7 /* Catify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyApp.swift; sourceTree = "<group>"; };
 		BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				BAA0F42C2C49CFB4002FF10F /* CatsListView.swift */,
 				BAA0F4312C49D02C002FF10F /* CatsListViewModel.swift */,
+				BA8810B72C4C748A003C54C3 /* CatsRepository.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA8810B82C4C748A003C54C3 /* CatsRepository.swift in Sources */,
 				BAA0F4222C49C3D0002FF10F /* AppCore.swift in Sources */,
 				BAA0F42A2C49CE4B002FF10F /* CatImage+Extensions.swift in Sources */,
 				BAA0F4322C49D02C002FF10F /* CatsListViewModel.swift in Sources */,
