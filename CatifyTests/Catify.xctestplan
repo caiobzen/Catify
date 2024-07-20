@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "23D5B3FC-7683-42AD-8602-BB9193CB0799",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Catify.xcodeproj",
+      "identifier" : "BA9D78312C494D9B00A8A1C7",
+      "name" : "Catify"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Catify.xcodeproj",
+        "identifier" : "BA9D78432C494DA000A8A1C7",
+        "name" : "CatifyTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Catify.xcodeproj",
+        "identifier" : "BA9D784D2C494DA000A8A1C7",
+        "name" : "CatifyUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

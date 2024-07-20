@@ -4,6 +4,7 @@ import Foundation
 class CatifyAPIMock: CatifyAPIProtocol {
     
     var fetchCatImagesResponse: [CatImage] = []
+    var requestedPage: Int?
     
     func fetchCatImages(
         size: CatifyAPI.ImageSize,
@@ -12,6 +13,8 @@ class CatifyAPIMock: CatifyAPIProtocol {
         hasBreeds: Bool,
         includeBreeds: Bool
     ) async throws -> [CatifyAPI.CatImage] {
-        fetchCatImagesResponse
+        
+        requestedPage = page
+        return fetchCatImagesResponse
     }
 }

@@ -38,6 +38,21 @@ final class CatsListViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.imageItems.isEmpty)
     }
     
+    func test_increasePagination() async {
+        
+        // Arrange
+        viewModel = CatsListViewModel(clientAPI: apiMock,
+                                      dataBase: dataBaseMock,
+                                      imageItems: imageItemsMock)
+        
+        // Act
+        await viewModel.fetchData()
+        await viewModel.fetchData()
+        
+        // Assert
+        XCTAssertEqual(apiMock.requestedPage, 2)
+    }
+    
     func test_whenSeachingWithEmptyString_itDisplaysAllImageItems() {
         
         // Arrange
@@ -69,20 +84,23 @@ final class CatsListViewModelTests: XCTestCase {
 
 extension CatsListViewModelTests {
     
+    struct ImageItemMock: ImageItem {
+        var id: String
+        var text: String
+        var imageURL: URL
+        var isFavorite: Bool
+    }
+    
     var imageItemsMock: [ImageItem] {[
-        Cat(id: "1",
-            image: URL(string: "http://cat.com")!,
-            breedName: "foo",
-            origin: "",
-            temperament: "",
-            desc: "",
+        ImageItemMock(id: "1",
+            text: "foo",
+            imageURL: URL(string: "http://cat.com")!,
             isFavorite: false),
-        Cat(id: "2",
-            image: URL(string: "http://cat.com")!,
-            breedName: "bar",
-            origin: "",
-            temperament: "",
-            desc: "",
-            isFavorite: true)
+        ImageItemMock(id: "2",
+            text: "bar",
+            imageURL: URL(string: "http://cat.com")!,
+            isFavorite: true),
     ]}
 }
+
+

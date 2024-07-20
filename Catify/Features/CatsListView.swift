@@ -21,6 +21,9 @@ struct CatsListView: View {
             ImageItemListView(imageItems: viewModel.imageItems) { id in
                 viewModel.toggleFavorite(for: id)
             }
+            .onAppear {
+                Task { await viewModel.fetchData() }
+            }
         }
     }
 }

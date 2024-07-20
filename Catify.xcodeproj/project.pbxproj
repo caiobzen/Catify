@@ -11,7 +11,6 @@
 		BA9D78362C494D9B00A8A1C7 /* CatifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */; };
 		BA9D783C2C494D9D00A8A1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */; };
 		BA9D783F2C494D9D00A8A1C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9D783E2C494D9D00A8A1C7 /* Preview Assets.xcassets */; };
-		BA9D78492C494DA000A8A1C7 /* CatifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D78482C494DA000A8A1C7 /* CatifyTests.swift */; };
 		BA9D78532C494DA000A8A1C7 /* CatifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D78522C494DA000A8A1C7 /* CatifyUITests.swift */; };
 		BA9D78632C494DE200A8A1C7 /* CatifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = BA9D78622C494DE200A8A1C7 /* CatifyAPI */; };
 		BA9D78652C49533E00A8A1C7 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BA9D78642C49533E00A8A1C7 /* Debug.xcconfig */; };
@@ -47,12 +46,12 @@
 
 /* Begin PBXFileReference section */
 		BA21DC8A2C4AB83600659703 /* CatifyDataBaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyDataBaseMock.swift; sourceTree = "<group>"; };
+		BA21DC8C2C4AC22300659703 /* Catify.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Catify.xctestplan; sourceTree = "<group>"; };
 		BA9D78322C494D9B00A8A1C7 /* Catify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyApp.swift; sourceTree = "<group>"; };
 		BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA9D783E2C494D9D00A8A1C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BA9D78442C494DA000A8A1C7 /* CatifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA9D78482C494DA000A8A1C7 /* CatifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyTests.swift; sourceTree = "<group>"; };
 		BA9D784E2C494DA000A8A1C7 /* CatifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9D78522C494DA000A8A1C7 /* CatifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyUITests.swift; sourceTree = "<group>"; };
 		BA9D78642C49533E00A8A1C7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -144,9 +143,9 @@
 		BA9D78472C494DA000A8A1C7 /* CatifyTests */ = {
 			isa = PBXGroup;
 			children = (
+				BA21DC8C2C4AC22300659703 /* Catify.xctestplan */,
 				BAA0F4332C49D31A002FF10F /* Mocks */,
 				BAA0F42E2C49CFE5002FF10F /* Featutes */,
-				BA9D78482C494DA000A8A1C7 /* CatifyTests.swift */,
 				BAA0F4232C49C442002FF10F /* AppCoreTests.swift */,
 			);
 			path = CatifyTests;
@@ -353,7 +352,6 @@
 				BA21DC8B2C4AB83600659703 /* CatifyDataBaseMock.swift in Sources */,
 				BAA0F4242C49C442002FF10F /* AppCoreTests.swift in Sources */,
 				BAA0F4352C49D325002FF10F /* CatifyAPIMock.swift in Sources */,
-				BA9D78492C494DA000A8A1C7 /* CatifyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

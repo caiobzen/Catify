@@ -10,6 +10,7 @@ class CatsListViewModel {
     private let dataBase: CatifyDataBaseProtocol
     private var allImageItems: [ImageItem] = []
     private(set) var imageItems: [ImageItem] = []
+    private var page = 1
     var searchQuery = "" {
         didSet {
             filterItems()
@@ -23,15 +24,13 @@ class CatsListViewModel {
         self.dataBase = dataBase
         self.allImageItems = imageItems
         self.imageItems = imageItems
-        
-        Task { await fetchData() }
     }
     
     func fetchData() async {
         do {
             let catImages = try await clientAPI.fetchCatImages(
                 size: .med,
-                page: 1,
+                page: page,
                 limit: 25,
                 hasBreeds: true,
                 includeBreeds: true
@@ -40,6 +39,7 @@ class CatsListViewModel {
             saveCats(catImages)
             imageItems = dataBase.fetchCats()
             allImageItems = imageItems
+            page += 1
         } catch {
             print("error \(error.localizedDescription)")
         }
