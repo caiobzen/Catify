@@ -80,6 +80,18 @@ final class CatsListViewModelTests: XCTestCase {
         // Assert
         XCTAssertEqual(viewModel.imageItems.count, 1)
     }
+    
+    func test_whenFilteringByFavorites_itDisplaysSavedCatsOnly() {
+        
+        // Arrange, Act
+        viewModel = CatsListViewModel(clientAPI: apiMock,
+                                      dataBase: dataBaseMock,
+                                      showFavoritesOnly: true,
+                                      imageItems: imageItemsMock)
+        
+        // Assert
+        XCTAssertEqual(viewModel.imageItems.count, 1)
+    }
 }
 
 extension CatsListViewModelTests {

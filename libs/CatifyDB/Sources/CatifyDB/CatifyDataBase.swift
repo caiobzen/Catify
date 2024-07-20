@@ -2,7 +2,7 @@ import SwiftData
 import Foundation
 
 public protocol CatifyDataBaseProtocol {
-    func fetchCats() -> [Cat]
+    func fetchCats(favoritesOnly: Bool) -> [Cat]
     func insert(cat: Cat)
     func deleteAllCats()
     func toggleFavorite(catId: String)
@@ -17,8 +17,17 @@ public class CatifyDataBase: CatifyDataBaseProtocol {
     }
     
     @MainActor
-    public func fetchCats() -> [Cat] {
-        (try? modelContainer.mainContext.fetch(FetchDescriptor<Cat>())) ?? []
+    public func fetchCats(favoritesOnly: Bool = false) -> [Cat] {
+        
+        var fetchDescriptor = FetchDescriptor<Cat>()
+        
+        if favoritesOnly {
+            fetchDescriptor = FetchDescriptor<Cat>(
+                predicate: #Predicate<Cat> { $0.isFavorite }
+            )
+        }
+        
+        return (try? modelContainer.mainContext.fetch(fetchDescriptor)) ?? []
     }
     
     @MainActor

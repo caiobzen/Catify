@@ -8,6 +8,7 @@ class CatsListViewModel {
     
     private let clientAPI: CatifyAPIProtocol
     private let dataBase: CatifyDataBaseProtocol
+    private let showFavoritesOnly: Bool
     private var allImageItems: [ImageItem] = []
     private(set) var imageItems: [ImageItem] = []
     private var page = 1
@@ -20,35 +21,45 @@ class CatsListViewModel {
     
     init(clientAPI: CatifyAPIProtocol,
          dataBase: CatifyDataBaseProtocol,
+         showFavoritesOnly: Bool = false,
          imageItems: [ImageItem] = []) {
         self.clientAPI = clientAPI
         self.dataBase = dataBase
         self.allImageItems = imageItems
-        self.imageItems = imageItems
+        self.showFavoritesOnly = showFavoritesOnly
+        self.imageItems = showFavoritesOnly
+            ? dataBase.fetchCats(favoritesOnly: true)
+            : imageItems
     }
     
     @MainActor
     func fetchData() async {
         guard !isFetching else { return }
-        do {
-            isFetching = true
-            let catImages = try await clientAPI.fetchCatImages(
-                size: .med,
-                page: page,
-                limit: 25,
-                hasBreeds: true,
-                includeBreeds: true,
-                order: .asc
-            )
-            
-            saveCats(catImages)
-            imageItems = dataBase.fetchCats()
+        
+        if showFavoritesOnly {
+            imageItems = dataBase.fetchCats(favoritesOnly: showFavoritesOnly)
             allImageItems = imageItems
-            page += 1
-            isFetching = false
-        } catch {
-            print("error \(error.localizedDescription)")
-            isFetching = false
+        } else {
+            do {
+                isFetching = true
+                let catImages = try await clientAPI.fetchCatImages(
+                    size: .med,
+                    page: page,
+                    limit: 25,
+                    hasBreeds: true,
+                    includeBreeds: true,
+                    order: .asc
+                )
+                
+                saveCats(catImages)
+                imageItems = dataBase.fetchCats(favoritesOnly: showFavoritesOnly)
+                allImageItems = imageItems
+                page += 1
+                isFetching = false
+            } catch {
+                print("error \(error.localizedDescription)")
+                isFetching = false
+            }
         }
     }
     
@@ -64,6 +75,10 @@ class CatsListViewModel {
     
     func toggleFavorite(for id: String) {
         dataBase.toggleFavorite(catId: id)
+        if showFavoritesOnly {
+            imageItems = dataBase.fetchCats(favoritesOnly: showFavoritesOnly)
+            allImageItems = imageItems
+        }
     }
 }
 

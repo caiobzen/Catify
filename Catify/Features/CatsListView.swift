@@ -8,7 +8,8 @@ struct CatsListView: View {
     
     private var viewModel: CatsListViewModel
     
-    init(viewModel: CatsListViewModel) {
+    init(viewModel: CatsListViewModel,
+         filterFavorites: Bool = false) {
         self.viewModel = viewModel
     }
     

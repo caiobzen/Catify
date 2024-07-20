@@ -21,7 +21,13 @@ struct CatifyApp: App {
                     Label("Cats", systemImage: "cat")
                 }
                 
-                Text("Favotites")
+                CatsListView(
+                    viewModel: CatsListViewModel(
+                        clientAPI: core.apiClient,
+                        dataBase: core.dataBase,
+                        showFavoritesOnly: true
+                    )
+                )
                     .tabItem {
                         Label("Favotites", systemImage: "star")
                     }
