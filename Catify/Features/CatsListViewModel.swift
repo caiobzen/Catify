@@ -35,6 +35,8 @@ class CatsListViewModel {
     @MainActor
     func fetchData() async {
         
+        guard searchQuery.isEmpty else { return }
+        
         switch filter {
         case .all:
             await fetchRemoteCats()

@@ -70,7 +70,7 @@ final class CatsListViewModelTests: XCTestCase {
     
     func test_whenFilteringByFavorites_itDisplaysSavedCatsOnly() async {
         
-        // Arrange, Act
+        // Arrange
         viewModel = CatsListViewModel(
             repository: CatsRepository(
                 clientAPI: apiMock,
@@ -80,10 +80,30 @@ final class CatsListViewModelTests: XCTestCase {
             imageItems: imageItemsMock
         )
         
+        // Act
         await viewModel.fetchData()
         
         // Assert
         XCTAssertEqual(viewModel.imageItems.count, 1)
+    }
+    
+    func test_whenFilteringByName_itPreventsFromLoadingRemoteData() async {
+        
+        // Arrange
+        viewModel = CatsListViewModel(
+            repository: CatsRepository(
+                clientAPI: apiMock,
+                dataBase: dataBaseMock
+            ),
+            imageItems: imageItemsMock
+        )
+        viewModel.searchQuery = "foo"
+        
+        // Act
+        await viewModel.fetchData()
+        
+        // Assert
+        XCTAssertNil(apiMock.requestedPage)
     }
 }
 
