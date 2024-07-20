@@ -6,5 +6,6 @@ public protocol CatifyAPIProtocol {
                         page: Int,
                         limit: Int,
                         hasBreeds: Bool,
-                        includeBreeds: Bool) async throws -> [CatImage]
+                        includeBreeds: Bool,
+                        order: Order) async throws -> [CatImage]
 }

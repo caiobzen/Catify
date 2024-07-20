@@ -9,6 +9,7 @@ public struct CatifyAPIClient: CatifyAPIProtocol {
         static let quantity = "quantity"
         static let page = "page"
         static let limit = "limit"
+        static let order = "order"
     }
     
     let apiKey: String
@@ -24,20 +25,23 @@ public struct CatifyAPIClient: CatifyAPIProtocol {
                                page: Int = 1,
                                limit: Int = 1,
                                hasBreeds: Bool = true,
-                               includeBreeds: Bool = true) async throws -> [CatImage] {
+                               includeBreeds: Bool = true,
+                               order: Order = .asc) async throws -> [CatImage] {
     
         let queryItems = [
             URLQueryItem(name: Constants.size, value: size.rawValue),
             URLQueryItem(name: Constants.hasBreeds, value: hasBreeds.description),
             URLQueryItem(name: Constants.includeBreeds, value: includeBreeds.description),
             URLQueryItem(name: Constants.page, value: page.description),
-            URLQueryItem(name: Constants.limit, value: limit.description)
+            URLQueryItem(name: Constants.limit, value: limit.description),
+            URLQueryItem(name: Constants.order, value: order.rawValue)
         ]
 
         do {
             let urlRequest = try URLRequestFactory.create(for: .searchImages,
                                                           apiKey: apiKey,
                                                           queryItems: queryItems)
+            urlRequest.log()
             let result = try await urlSession.data(for: urlRequest,
                                                    delegate: nil)
             let response = try JSONDecoder().decode([CatImage].self,

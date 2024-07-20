@@ -18,13 +18,25 @@ struct CatsListView: View {
                 get: { viewModel.searchQuery } ,
                 set: { viewModel.searchQuery = $0 })
             )
-            ImageItemListView(imageItems: viewModel.imageItems) { id in
-                viewModel.toggleFavorite(for: id)
-            }
-            .onAppear {
-                Task { await viewModel.fetchData() }
+            ImageItemListView(imageItems: viewModel.imageItems,
+                              didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
+                              didShowLastItem: { fetchData() })
+            .onAppear(perform: fetchData)
+            if viewModel.isFetching {
+                
+                HStack {
+                    Spacer()
+                    Text("Loading More Cats ")
+                    ProgressView()
+                    Spacer()
+                }
+                .padding()
             }
         }
+    }
+    
+    private func fetchData() {
+        Task { await viewModel.fetchData() }
     }
 }
 

@@ -11,6 +11,7 @@ class CatsListViewModel {
     private var allImageItems: [ImageItem] = []
     private(set) var imageItems: [ImageItem] = []
     private var page = 1
+    var isFetching = false
     var searchQuery = "" {
         didSet {
             filterItems()
@@ -26,22 +27,28 @@ class CatsListViewModel {
         self.imageItems = imageItems
     }
     
+    @MainActor
     func fetchData() async {
+        guard !isFetching else { return }
         do {
+            isFetching = true
             let catImages = try await clientAPI.fetchCatImages(
                 size: .med,
                 page: page,
                 limit: 25,
                 hasBreeds: true,
-                includeBreeds: true
+                includeBreeds: true,
+                order: .asc
             )
             
             saveCats(catImages)
             imageItems = dataBase.fetchCats()
             allImageItems = imageItems
             page += 1
+            isFetching = false
         } catch {
             print("error \(error.localizedDescription)")
+            isFetching = false
         }
     }
     

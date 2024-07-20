@@ -23,7 +23,7 @@ final class CatifyAPITests: XCTestCase {
         )
         
         // Assert
-        XCTAssertEqual(urlSessionMock.urlRequest?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=false&include_breeds=true&page=0&limit=1")
+        XCTAssertEqual(urlSessionMock.urlRequest?.url?.absoluteString, "https://api.thecatapi.com/v1/images/search?size=med&has_breeds=false&include_breeds=true&page=0&limit=1&order=asc")
         XCTAssertNotNil(urlSessionMock.urlRequest?.value(forHTTPHeaderField: "x-api-key"))
         XCTAssertNotNil(urlSessionMock.urlRequest?.value(forHTTPHeaderField: "Content-Type"))
     }

@@ -3,6 +3,7 @@ import SwiftUI
 public struct ImageItemListView: View {
     
     public var didToggleFavorite: ((String) -> ())? = nil
+    public var didShowLastItem: (() -> ())? = nil
     
     private enum Constants {
         static let spacing: CGFloat = 20
@@ -11,9 +12,11 @@ public struct ImageItemListView: View {
     private let imageItems: [ImageItem]
     
     public init(imageItems: [ImageItem],
-                didToggleFavorite: ((String) -> ())? = nil) {
+                didToggleFavorite: ((String) -> ())? = nil,
+                didShowLastItem: (() -> ())? = nil) {
         self.imageItems = imageItems
         self.didToggleFavorite = didToggleFavorite
+        self.didShowLastItem = didShowLastItem
     }
     
     let columns: [GridItem] = [
@@ -32,6 +35,11 @@ public struct ImageItemListView: View {
                             .overlay {
                                 FavoriteIconOverlay(isFavorite: item.isFavorite) {
                                     didToggleFavorite?(item.id)
+                                }
+                            }
+                            .onAppear {
+                                if item.id == imageItems.last?.id {
+                                    didShowLastItem?()
                                 }
                             }
                     }

@@ -18,7 +18,7 @@ public class CatifyDataBase: CatifyDataBaseProtocol {
     
     @MainActor
     public func fetchCats() -> [Cat] {
-        return (try? modelContainer.mainContext.fetch(FetchDescriptor<Cat>())) ?? []
+        (try? modelContainer.mainContext.fetch(FetchDescriptor<Cat>())) ?? []
     }
     
     @MainActor
