@@ -13,7 +13,7 @@ class CatsListViewModel {
     
     private let repository: CatsRepository
     private let filter: CatsFilter
-    private var allImageItems: [ImageItem] = []
+    private(set) var allImageItems: [ImageItem] = []
     private(set) var imageItems: [ImageItem] = []
     private var page = 1
     var isFetching = false
@@ -27,9 +27,9 @@ class CatsListViewModel {
          filter: CatsFilter = .all,
          imageItems: [ImageItem] = []) {
         self.repository = repository
-        self.allImageItems = imageItems
         self.filter = filter
         self.imageItems = imageItems
+        self.allImageItems = imageItems
     }
     
     @MainActor
@@ -60,6 +60,7 @@ class CatsListViewModel {
     
     func fetchFavoriteCats() {
         imageItems = repository.fetchLocalCats(favoritesOnly: true)
+        allImageItems = imageItems
     }
     
     func filterItems() {

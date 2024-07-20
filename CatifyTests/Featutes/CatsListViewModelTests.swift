@@ -105,6 +105,27 @@ final class CatsListViewModelTests: XCTestCase {
         // Assert
         XCTAssertNil(apiMock.requestedPage)
     }
+    
+    func test_whenFetchingFavoriteCats_itAlsoPopulatesAllImageItemsForFutureQueries() async {
+        
+        // Arrange
+        viewModel = CatsListViewModel(
+            repository: CatsRepository(
+                clientAPI: apiMock,
+                dataBase: dataBaseMock
+            ),
+            imageItems: imageItemsMock
+        )
+        
+        // Act
+        viewModel.fetchFavoriteCats()
+        
+        // Assert
+        XCTAssertEqual(
+            viewModel.imageItems.count,
+            viewModel.allImageItems.count
+        )
+    }
 }
 
 extension CatsListViewModelTests {
