@@ -16,7 +16,8 @@ struct CatifyApp: App {
                         repository: CatsRepository(
                             clientAPI: core.apiClient,
                             dataBase: core.dataBase
-                        )
+                        ),
+                        filter: .all
                     )
                 )
                 .tabItem {
@@ -25,12 +26,15 @@ struct CatifyApp: App {
                 
                 CatsListView(
                     viewModel: CatsListViewModel(
-                        repository: CatsRepository(clientAPI: core.apiClient, dataBase: core.dataBase),
+                        repository: CatsRepository(
+                            clientAPI: core.apiClient,
+                            dataBase: core.dataBase
+                        ),
                         filter: .favorites)
                 )
-                    .tabItem {
-                        Label("Favotites", systemImage: "star")
-                    }
+                .tabItem {
+                    Label("Favotites", systemImage: "star")
+                }
             }
         }
     }
