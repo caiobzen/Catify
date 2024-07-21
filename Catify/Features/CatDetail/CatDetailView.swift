@@ -24,27 +24,11 @@ struct CatDetailView: View {
                     .padding()
                 }
                 
-                if let origin = viewModel.cat.origin {
+                ForEach(viewModel.catInfoSections, id: \.header) { section in
                     Section {
-                        Text(origin)
+                        Text(section.text)
                     } header: {
-                        Text("Origin")
-                    }
-                }
-                
-                if let temperament = viewModel.cat.temperament {
-                    Section {
-                        Text(temperament)
-                    } header: {
-                        Text("Temperament")
-                    }
-                }
-                
-                if let description = viewModel.cat.desc {
-                    Section {
-                        Text(description)
-                    } header: {
-                        Text("Description")
+                        Text(section.header)
                     }
                 }
             }

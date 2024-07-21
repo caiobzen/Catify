@@ -10,10 +10,18 @@ final class CatDetailViewModelTests: XCTestCase {
     override func setUp() {
         apiMock = CatifyAPIMock()
         dataBaseMock = CatifyDataBaseMock()
+        viewModel = CatDetailViewModel(
+            repository: CatsRepository(
+                clientAPI: apiMock,
+                dataBase: dataBaseMock
+            ),
+            catId: "1"
+        )
     }
 
     func test_onInit_ifAnInvalidIdIsGiven_itReturnsAnInvalidCat() {
         
+        // Arrange, Act
         viewModel = CatDetailViewModel(
             repository: CatsRepository(
                 clientAPI: apiMock,
@@ -22,19 +30,23 @@ final class CatDetailViewModelTests: XCTestCase {
             catId: ""
         )
         
+        // Assert
         XCTAssertEqual(viewModel.cat.breedName, "Invalid Data")
     }
     
     func test_onInit_ifAValidIdIsGiven_itReturnsAValidCat() {
         
-        viewModel = CatDetailViewModel(
-            repository: CatsRepository(
-                clientAPI: apiMock,
-                dataBase: dataBaseMock
-            ),
-            catId: "1"
-        )
-        
+        // Assert
         XCTAssertEqual(viewModel.cat.breedName, "Valid Cat")
+    }
+    
+    func test_onInit_itLoadsCatInfoSections() {
+        
+        // Assert
+        XCTAssertEqual(viewModel.catInfoSections, [
+            CatDetailViewModel.CatInfoSection(header: "Origin", text: "Cat Origin"),
+            CatDetailViewModel.CatInfoSection(header: "Temperament", text: "Cat Temperament"),
+            CatDetailViewModel.CatInfoSection(header: "Description", text: "Cat Description")
+        ])
     }
 }
