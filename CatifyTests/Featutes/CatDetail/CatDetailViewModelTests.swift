@@ -18,6 +18,10 @@ final class CatDetailViewModelTests: XCTestCase {
             catId: "1"
         )
     }
+    
+    override func tearDown() {
+        
+    }
 
     func test_onInit_ifAnInvalidIdIsGiven_itReturnsAnInvalidCat() {
         
@@ -48,5 +52,14 @@ final class CatDetailViewModelTests: XCTestCase {
             CatDetailViewModel.CatInfoSection(header: "Temperament", text: "Cat Temperament"),
             CatDetailViewModel.CatInfoSection(header: "Description", text: "Cat Description")
         ])
+    }
+    
+    func test_onToggleFavorite_itUpdatesCatOnDatabase() {
+        
+        XCTAssertTrue(viewModel.cat.isFavorite)
+        
+        viewModel.toggleFavorite()
+        
+        XCTAssertFalse(viewModel.cat.isFavorite)
     }
 }

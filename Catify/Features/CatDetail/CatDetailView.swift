@@ -34,9 +34,11 @@ struct CatDetailView: View {
             }
             .toolbar {
                 Button {
-                    //viewModel.toggleFavorite()
+                    viewModel.toggleFavorite()
                 } label: {
-                    Image(systemName: "heart")
+                    Image(systemName: viewModel.cat.isFavorite
+                          ? "star.fill"
+                          : "star")
                 }
             }
         .navigationTitle(viewModel.cat.breedName ?? "")

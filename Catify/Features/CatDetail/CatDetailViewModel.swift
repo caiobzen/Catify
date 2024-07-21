@@ -32,4 +32,8 @@ class CatDetailViewModel {
         cat.temperament.flatMap { catInfoSections.append(CatInfoSection(header: Constants.temperament, text: $0)) }
         cat.desc.flatMap { catInfoSections.append(CatInfoSection(header: Constants.description, text: $0)) }
     }
+    
+    func toggleFavorite() {
+        self.repository.toggleFavorite(for: cat.id)
+    }
 }
