@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA21DC8B2C4AB83600659703 /* CatifyDataBaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21DC8A2C4AB83600659703 /* CatifyDataBaseMock.swift */; };
 		BA8810B82C4C748A003C54C3 /* CatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810B72C4C748A003C54C3 /* CatsRepository.swift */; };
+		BA8810BC2C4DA920003C54C3 /* Cat+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810BB2C4DA920003C54C3 /* Cat+ExtensionTests.swift */; };
 		BA9D78362C494D9B00A8A1C7 /* CatifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */; };
 		BA9D783C2C494D9D00A8A1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */; };
 		BA9D783F2C494D9D00A8A1C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9D783E2C494D9D00A8A1C7 /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		BA21DC8C2C4AC22300659703 /* Catify.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Catify.xctestplan; sourceTree = "<group>"; };
 		BA8810B72C4C748A003C54C3 /* CatsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsRepository.swift; sourceTree = "<group>"; };
 		BA8810B92C4C7B27003C54C3 /* Catify.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Catify.xctestplan; sourceTree = "<group>"; };
+		BA8810BB2C4DA920003C54C3 /* Cat+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cat+ExtensionTests.swift"; sourceTree = "<group>"; };
 		BA9D78322C494D9B00A8A1C7 /* Catify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyApp.swift; sourceTree = "<group>"; };
 		BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA8810BA2C4DA909003C54C3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA8810BB2C4DA920003C54C3 /* Cat+ExtensionTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BA9D78292C494D9B00A8A1C7 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				BA21DC8C2C4AC22300659703 /* Catify.xctestplan */,
+				BA8810BA2C4DA909003C54C3 /* Extensions */,
 				BAA0F4332C49D31A002FF10F /* Mocks */,
 				BAA0F42E2C49CFE5002FF10F /* Featutes */,
 				BAA0F4232C49C442002FF10F /* AppCoreTests.swift */,
@@ -355,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAA0F4302C49D006002FF10F /* CatsListViewModelTests.swift in Sources */,
+				BA8810BC2C4DA920003C54C3 /* Cat+ExtensionTests.swift in Sources */,
 				BA21DC8B2C4AB83600659703 /* CatifyDataBaseMock.swift in Sources */,
 				BAA0F4242C49C442002FF10F /* AppCoreTests.swift in Sources */,
 				BAA0F4352C49D325002FF10F /* CatifyAPIMock.swift in Sources */,
