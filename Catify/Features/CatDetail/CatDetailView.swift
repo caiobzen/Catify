@@ -3,12 +3,20 @@ import CatifyDB
 import CatifyAPI
 
 struct CatDetailView: View {
+    
+    private enum Constants {
+        enum Assets {
+            static let star = "star"
+            static let starFill = "star.fill"
+        }
+    }
 
     private var viewModel: CatDetailViewModel
     
     init(viewModel: CatDetailViewModel) {
         self.viewModel = viewModel
     }
+
     var body: some View {
             List {
                 Section {
@@ -37,8 +45,8 @@ struct CatDetailView: View {
                     viewModel.toggleFavorite()
                 } label: {
                     Image(systemName: viewModel.cat.isFavorite
-                          ? "star.fill"
-                          : "star")
+                          ? Constants.Assets.starFill
+                          : Constants.Assets.star)
                 }
             }
         .navigationTitle(viewModel.cat.breedName ?? "")

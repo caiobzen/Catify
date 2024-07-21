@@ -15,14 +15,14 @@ TODO List:
     [x] a. Show the average lifespan of all the favourite breeds (you can use either
     the lower or the higher value in the range).
 
-[ ] Implement a screen with a detailed view of a breed, with the following info:
+[x] Implement a screen with a detailed view of a breed, with the following info:
     a. Breed Name;
     b. Origin;
     c. Temperament;
     d. Description;
     e. A button to add/remove the breed from the favourites.
     
-[ ] Pressing on one of the list elements (be it in whatever screen) it should open the
+[x] Pressing on one of the list elements (be it in whatever screen) it should open the
 detailed view of a breed.
 
 [ ] Add UITests
