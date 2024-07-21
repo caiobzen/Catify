@@ -1,6 +1,8 @@
 # Catify
 Who loves cats?
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/c9b642e5b68190faf046/maintainability)](https://codeclimate.com/github/caiobzen/Catify/maintainability)
+
 TODO List:
 
 [x] A screen with a list of cat breeds, with the following info:
