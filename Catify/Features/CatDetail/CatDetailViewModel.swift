@@ -16,8 +16,8 @@ class CatDetailViewModel {
     }
     
     private let repository: CatsRepository
-    var cat: Cat
-    var catInfoSections: [CatInfoSection] = []
+    private(set) var cat: Cat
+    private(set) var catInfoSections: [CatInfoSection] = []
     
     init(repository: CatsRepository,
          catId: String) {
