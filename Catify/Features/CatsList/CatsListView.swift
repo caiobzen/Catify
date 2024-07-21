@@ -21,23 +21,23 @@ struct CatsListView: View {
                 get: { viewModel.searchQuery } ,
                 set: { viewModel.searchQuery = $0 })
             )
-            ImageItemListView(
-                imageItems: viewModel.imageItems,
-                didShowLastItem: { fetchData() },
-                showDetailText: viewModel.filter == .favorites,
-                didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
-                didTapItem: { onItemSelected?($0) }
-            )
-            .onAppear(perform: fetchData)
-            if viewModel.isFetching {
+            
+            ZStack {
+                ImageItemListView(
+                    imageItems: viewModel.imageItems,
+                    didShowLastItem: { fetchData() },
+                    showDetailText: viewModel.filter == .favorites,
+                    didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
+                    didTapItem: { onItemSelected?($0) }
+                )
+                .onAppear(perform: fetchData)
                 
-                HStack {
-                    Spacer()
-                    Text("Loading More Cats ")
-                    ProgressView()
-                    Spacer()
+                if viewModel.isFetching {
+                    VStack {
+                        Spacer()
+                        LoadingMoreView(text: "Fetching More Cats... ")
+                    }
                 }
-                .padding()
             }
         }
     }
