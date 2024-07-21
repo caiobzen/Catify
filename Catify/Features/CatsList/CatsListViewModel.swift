@@ -79,8 +79,4 @@ class CatsListViewModel {
             fetchFavoriteCats()
         }
     }
-    
-    func didSelectCat(id: String) {
-        
-    }
 }

@@ -10,6 +10,9 @@
 		BA21DC8B2C4AB83600659703 /* CatifyDataBaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21DC8A2C4AB83600659703 /* CatifyDataBaseMock.swift */; };
 		BA8810B82C4C748A003C54C3 /* CatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810B72C4C748A003C54C3 /* CatsRepository.swift */; };
 		BA8810BC2C4DA920003C54C3 /* Cat+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810BB2C4DA920003C54C3 /* Cat+ExtensionTests.swift */; };
+		BA8810C12C4DB29F003C54C3 /* CatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810C02C4DB29F003C54C3 /* CatDetailView.swift */; };
+		BA8810C32C4DB40A003C54C3 /* CatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810C22C4DB40A003C54C3 /* CatDetailViewModel.swift */; };
+		BA8810C62C4DB430003C54C3 /* CatDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810C52C4DB430003C54C3 /* CatDetailViewModelTests.swift */; };
 		BA9D78362C494D9B00A8A1C7 /* CatifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */; };
 		BA9D783C2C494D9D00A8A1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */; };
 		BA9D783F2C494D9D00A8A1C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9D783E2C494D9D00A8A1C7 /* Preview Assets.xcassets */; };
@@ -52,6 +55,9 @@
 		BA8810B72C4C748A003C54C3 /* CatsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsRepository.swift; sourceTree = "<group>"; };
 		BA8810B92C4C7B27003C54C3 /* Catify.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Catify.xctestplan; sourceTree = "<group>"; };
 		BA8810BB2C4DA920003C54C3 /* Cat+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cat+ExtensionTests.swift"; sourceTree = "<group>"; };
+		BA8810C02C4DB29F003C54C3 /* CatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailView.swift; sourceTree = "<group>"; };
+		BA8810C22C4DB40A003C54C3 /* CatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailViewModel.swift; sourceTree = "<group>"; };
+		BA8810C52C4DB430003C54C3 /* CatDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailViewModelTests.swift; sourceTree = "<group>"; };
 		BA9D78322C494D9B00A8A1C7 /* Catify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9D78352C494D9B00A8A1C7 /* CatifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyApp.swift; sourceTree = "<group>"; };
 		BA9D783B2C494D9D00A8A1C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 		BA8810BE2C4DAAA4003C54C3 /* CatDetail */ = {
 			isa = PBXGroup;
 			children = (
+				BA8810C02C4DB29F003C54C3 /* CatDetailView.swift */,
+				BA8810C22C4DB40A003C54C3 /* CatDetailViewModel.swift */,
 			);
 			path = CatDetail;
 			sourceTree = "<group>";
@@ -130,6 +138,14 @@
 				BAA0F42F2C49D006002FF10F /* CatsListViewModelTests.swift */,
 			);
 			path = CatsList;
+			sourceTree = "<group>";
+		};
+		BA8810C42C4DB420003C54C3 /* CatDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BA8810C52C4DB430003C54C3 /* CatDetailViewModelTests.swift */,
+			);
+			path = CatDetail;
 			sourceTree = "<group>";
 		};
 		BA9D78292C494D9B00A8A1C7 = {
@@ -219,6 +235,7 @@
 		BAA0F42E2C49CFE5002FF10F /* Featutes */ = {
 			isa = PBXGroup;
 			children = (
+				BA8810C42C4DB420003C54C3 /* CatDetail */,
 				BA8810BF2C4DAACB003C54C3 /* CatsList */,
 			);
 			path = Featutes;
@@ -378,9 +395,11 @@
 			files = (
 				BA8810B82C4C748A003C54C3 /* CatsRepository.swift in Sources */,
 				BAA0F4222C49C3D0002FF10F /* AppCore.swift in Sources */,
+				BA8810C32C4DB40A003C54C3 /* CatDetailViewModel.swift in Sources */,
 				BAA0F42A2C49CE4B002FF10F /* CatImage+Extensions.swift in Sources */,
 				BAA0F4322C49D02C002FF10F /* CatsListViewModel.swift in Sources */,
 				BA9D78362C494D9B00A8A1C7 /* CatifyApp.swift in Sources */,
+				BA8810C12C4DB29F003C54C3 /* CatDetailView.swift in Sources */,
 				BAA0F42D2C49CFB4002FF10F /* CatsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +412,7 @@
 				BA8810BC2C4DA920003C54C3 /* Cat+ExtensionTests.swift in Sources */,
 				BA21DC8B2C4AB83600659703 /* CatifyDataBaseMock.swift in Sources */,
 				BAA0F4242C49C442002FF10F /* AppCoreTests.swift in Sources */,
+				BA8810C62C4DB430003C54C3 /* CatDetailViewModelTests.swift in Sources */,
 				BAA0F4352C49D325002FF10F /* CatifyAPIMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -51,4 +51,14 @@ class CatsRepository {
     func toggleFavorite(for id: String) {
         dataBase.toggleFavorite(catId: id)
     }
+    
+    func fetchCatWith(id: String) -> Cat {
+        dataBase.fetchCatWith(id: id) ?? Cat(id: "", 
+                                             image: nil,
+                                             breedName: "Invalid Data",
+                                             origin: "",
+                                             temperament: nil,
+                                             lifespan: nil,
+                                             desc: nil)
+    }
 }

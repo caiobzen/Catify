@@ -12,7 +12,7 @@ TODO List:
 [x] The cat breeds screen should contain a button to mark the breed as favourite.
 
 [x] Implement a new screen to show the breeds marked as favourites.
-    [] a. Show the average lifespan of all the favourite breeds (you can use either
+    [x] a. Show the average lifespan of all the favourite breeds (you can use either
     the lower or the higher value in the range).
 
 [ ] Implement a screen with a detailed view of a breed, with the following info:
@@ -27,4 +27,4 @@ detailed view of a breed.
 
 [ ] Add UITests
 
-[ ] Update Project Documentation
+[ ] Update Project Documentation / Add Code Climate

@@ -7,40 +7,61 @@ import CatifyUI
 struct CatifyApp: App {
     
     private let core = AppCore()
+    @State private var path = [String]()
+    
+    init() {
+        UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+    }
     
     var body: some Scene {
         WindowGroup {
-            TabView {
-                CatsListView(
-                    viewModel: CatsListViewModel(
-                        repository: CatsRepository(
-                            clientAPI: core.apiClient,
-                            dataBase: core.dataBase
+            NavigationStack(path: $path) {
+                TabView {
+                    CatsListView(
+                        viewModel: CatsListViewModel(
+                            repository: CatsRepository(
+                                clientAPI: core.apiClient,
+                                dataBase: core.dataBase
+                            ),
+                            filter: .all
                         ),
-                        filter: .all
-                    ),
-                    onItemSelected: { catId in
-                        print(catId)
+                        onItemSelected: { catId in
+                            print(catId)
+                            path.append(catId)
+                        }
+                    )
+                    .tabItem {
+                        Label("Cats", systemImage: "cat")
                     }
-                )
-                .tabItem {
-                    Label("Cats", systemImage: "cat")
+                    
+                    CatsListView(
+                        viewModel: CatsListViewModel(
+                            repository: CatsRepository(
+                                clientAPI: core.apiClient,
+                                dataBase: core.dataBase
+                            ),
+                            filter: .favorites
+                        ),
+                        onItemSelected: { catId in
+                            print(catId)
+                            path.append(catId)
+                        }
+                    )
+                    .tabItem {
+                        Label("Favotites", systemImage: "star")
+                    }
                 }
-                
-                CatsListView(
-                    viewModel: CatsListViewModel(
-                        repository: CatsRepository(
-                            clientAPI: core.apiClient,
-                            dataBase: core.dataBase
-                        ),
-                        filter: .favorites
-                    ),
-                    onItemSelected: { catId in
-                        print(catId)
-                    }
-                )
-                .tabItem {
-                    Label("Favotites", systemImage: "star")
+                .navigationTitle("Catify")
+                .navigationDestination(for: String.self) { catId in
+                    CatDetailView(
+                        viewModel: CatDetailViewModel(
+                            repository: CatsRepository(
+                                clientAPI: core.apiClient,
+                                dataBase: core.dataBase
+                            ),
+                            catId: catId
+                        )
+                    )
                 }
             }
         }

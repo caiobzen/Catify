@@ -69,6 +69,20 @@ final class CatifyDBTests: XCTestCase {
         // Assert
         XCTAssertTrue(firstCat.isFavorite)
     }
+    
+    @MainActor
+    func test_fetchCatWithId() throws {
+        
+        // Arrange
+        let catMock = makeCatMockWith(id: "123")
+        catifyDB.insert(cat: catMock)
+        
+        // Act
+        let catFromDB = catifyDB.fetchCatWith(id: "123")
+        
+        // Assert
+        XCTAssertNotNil(catFromDB)
+    }
 }
 
 extension XCTestCase {

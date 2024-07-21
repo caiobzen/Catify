@@ -6,6 +6,7 @@ public protocol CatifyDataBaseProtocol {
     func insert(cat: Cat)
     func deleteAllCats()
     func toggleFavorite(catId: String)
+    func fetchCatWith(id: String) -> Cat?
 }
 
 public class CatifyDataBase: CatifyDataBaseProtocol {
@@ -32,7 +33,7 @@ public class CatifyDataBase: CatifyDataBaseProtocol {
     
     @MainActor
     public func insert(cat: Cat) {
-        
+
         if fetchCats().contains(where: { $0.id == cat.id }) {
             return
         }
@@ -62,5 +63,15 @@ public class CatifyDataBase: CatifyDataBaseProtocol {
         let cats = try? modelContainer.mainContext.fetch(catToUpdate)
         cats?.first?.isFavorite.toggle()
         try? modelContainer.mainContext.save()
+    }
+    
+    @MainActor
+    public func fetchCatWith(id: String) -> Cat? {
+        let catForId = FetchDescriptor<Cat>(
+            predicate: #Predicate<Cat> { $0.id == id }
+        )
+
+        let cats = try? modelContainer.mainContext.fetch(catForId)
+        return cats?.first
     }
 }
