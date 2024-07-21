@@ -18,7 +18,10 @@ struct CatifyApp: App {
                             dataBase: core.dataBase
                         ),
                         filter: .all
-                    )
+                    ),
+                    onItemSelected: { catId in
+                        print(catId)
+                    }
                 )
                 .tabItem {
                     Label("Cats", systemImage: "cat")
@@ -30,7 +33,11 @@ struct CatifyApp: App {
                             clientAPI: core.apiClient,
                             dataBase: core.dataBase
                         ),
-                        filter: .favorites)
+                        filter: .favorites
+                    ),
+                    onItemSelected: { catId in
+                        print(catId)
+                    }
                 )
                 .tabItem {
                     Label("Favotites", systemImage: "star")

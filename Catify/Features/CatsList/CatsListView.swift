@@ -7,9 +7,12 @@ import CatifyUI
 struct CatsListView: View {
     
     private var viewModel: CatsListViewModel
+    var onItemSelected: ((String) -> ())? = nil
     
-    init(viewModel: CatsListViewModel) {
+    init(viewModel: CatsListViewModel,
+         onItemSelected: ((String) -> ())? = nil) {
         self.viewModel = viewModel
+        self.onItemSelected = onItemSelected
     }
     
     var body: some View {
@@ -22,7 +25,8 @@ struct CatsListView: View {
                 imageItems: viewModel.imageItems,
                 didShowLastItem: { fetchData() },
                 showDetailText: viewModel.filter == .favorites,
-                didToggleFavorite: { viewModel.toggleFavorite(for: $0) }
+                didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
+                didTapItem: { onItemSelected?($0) }
             )
             .onAppear(perform: fetchData)
             if viewModel.isFetching {

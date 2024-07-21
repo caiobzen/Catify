@@ -108,6 +108,30 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		BA8810BD2C4DAA98003C54C3 /* CatsList */ = {
+			isa = PBXGroup;
+			children = (
+				BAA0F42C2C49CFB4002FF10F /* CatsListView.swift */,
+				BAA0F4312C49D02C002FF10F /* CatsListViewModel.swift */,
+			);
+			path = CatsList;
+			sourceTree = "<group>";
+		};
+		BA8810BE2C4DAAA4003C54C3 /* CatDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CatDetail;
+			sourceTree = "<group>";
+		};
+		BA8810BF2C4DAACB003C54C3 /* CatsList */ = {
+			isa = PBXGroup;
+			children = (
+				BAA0F42F2C49D006002FF10F /* CatsListViewModelTests.swift */,
+			);
+			path = CatsList;
+			sourceTree = "<group>";
+		};
 		BA9D78292C494D9B00A8A1C7 = {
 			isa = PBXGroup;
 			children = (
@@ -185,8 +209,8 @@
 		BAA0F42B2C49CF8E002FF10F /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				BAA0F42C2C49CFB4002FF10F /* CatsListView.swift */,
-				BAA0F4312C49D02C002FF10F /* CatsListViewModel.swift */,
+				BA8810BD2C4DAA98003C54C3 /* CatsList */,
+				BA8810BE2C4DAAA4003C54C3 /* CatDetail */,
 				BA8810B72C4C748A003C54C3 /* CatsRepository.swift */,
 			);
 			path = Features;
@@ -195,7 +219,7 @@
 		BAA0F42E2C49CFE5002FF10F /* Featutes */ = {
 			isa = PBXGroup;
 			children = (
-				BAA0F42F2C49D006002FF10F /* CatsListViewModelTests.swift */,
+				BA8810BF2C4DAACB003C54C3 /* CatsList */,
 			);
 			path = Featutes;
 			sourceTree = "<group>";

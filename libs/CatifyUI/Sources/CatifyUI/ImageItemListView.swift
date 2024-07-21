@@ -3,6 +3,7 @@ import SwiftUI
 public struct ImageItemListView: View {
     
     public var didToggleFavorite: ((String) -> ())? = nil
+    public var didTapItem: ((String) -> ())? = nil
     public var didShowLastItem: (() -> ())? = nil
     
     private enum Constants {
@@ -15,11 +16,13 @@ public struct ImageItemListView: View {
     public init(imageItems: [ImageItem],
                 didShowLastItem: (() -> ())? = nil,
                 showDetailText: Bool = false,
-                didToggleFavorite: ((String) -> ())? = nil) {
+                didToggleFavorite: ((String) -> ())? = nil,
+                didTapItem: ((String) -> ())? = nil) {
         self.imageItems = imageItems
         self.didShowLastItem = didShowLastItem
         self.showDetailText = showDetailText
         self.didToggleFavorite = didToggleFavorite
+        self.didTapItem = didTapItem
     }
     
     let columns: [GridItem] = [
@@ -45,7 +48,7 @@ public struct ImageItemListView: View {
                                     didShowLastItem?()
                                 }
                             }
-                    }
+                    }.onTapGesture { didTapItem?(item.id) }
                 }
             }
             .padding()

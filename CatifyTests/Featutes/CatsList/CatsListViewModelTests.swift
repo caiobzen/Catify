@@ -90,13 +90,6 @@ final class CatsListViewModelTests: XCTestCase {
     func test_whenFilteringByName_itPreventsFromLoadingRemoteData() async {
         
         // Arrange
-        viewModel = CatsListViewModel(
-            repository: CatsRepository(
-                clientAPI: apiMock,
-                dataBase: dataBaseMock
-            ),
-            imageItems: imageItemsMock
-        )
         viewModel.searchQuery = "foo"
         
         // Act
@@ -108,16 +101,7 @@ final class CatsListViewModelTests: XCTestCase {
     
     func test_whenFetchingFavoriteCats_itAlsoPopulatesAllImageItemsForFutureQueries() async {
         
-        // Arrange
-        viewModel = CatsListViewModel(
-            repository: CatsRepository(
-                clientAPI: apiMock,
-                dataBase: dataBaseMock
-            ),
-            imageItems: imageItemsMock
-        )
-        
-        // Act
+        // Arrange, Act
         viewModel.fetchFavoriteCats()
         
         // Assert
