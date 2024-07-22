@@ -28,10 +28,15 @@ struct CatsListView: View {
                 ImageItemListView(
                     imageItems: viewModel.imageItems,
                     didShowLastItem: { fetchData() },
-                    showDetailText: viewModel.shouldShowDetailText,
+                    showDetailText: viewModel.isFilteringByFavorites,
                     didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
                     didTapItem: { onItemSelected?($0) }
                 )
+                .onAppear {
+                    if viewModel.isFilteringByFavorites {
+                        fetchData()
+                    }
+                }
                 
                 if viewModel.isFetching {
                     VStack {

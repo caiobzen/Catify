@@ -80,5 +80,5 @@ class CatsListViewModel {
         }
     }
     
-    var shouldShowDetailText: Bool { filter == .favorites }
+    var isFilteringByFavorites: Bool { filter == .favorites }
 }
