@@ -4,7 +4,11 @@ import CatifyDB
 import CatifyAPI
 
 class CatsRepository {
-
+    
+    private enum Constants {
+        static let limitPerPage = 15
+    }
+    
     private let clientAPI: CatifyAPIProtocol
     private let dataBase: CatifyDataBaseProtocol
     
@@ -17,9 +21,9 @@ class CatsRepository {
     func fetchRemoteCats(page: Int) async {
         do {
             let catImages = try await clientAPI.fetchCatImages(
-                size: .med,
+                size: .thumb,
                 page: page,
-                limit: 25,
+                limit: Constants.limitPerPage,
                 hasBreeds: true,
                 includeBreeds: true,
                 order: .asc
@@ -35,10 +39,10 @@ class CatsRepository {
             dataBase.insert(cat: Cat(
                 id: $0.id,
                 image: $0.url,
-                breedName: $0.breeds.first?.name ?? "cat",
-                origin: $0.breeds.first?.origin ?? "origin",
-                temperament: $0.breeds.first?.temperament ?? "temperament",
-                lifespan: $0.breeds.first?.lifespan ?? "lifespan",
+                breedName: $0.breeds.first?.name ?? "",
+                origin: $0.breeds.first?.origin ?? "",
+                temperament: $0.breeds.first?.temperament ?? "",
+                lifespan: $0.breeds.first?.lifespan ?? "",
                 desc: $0.breeds.first?.description ?? "",
                 isFavorite: false))
         }

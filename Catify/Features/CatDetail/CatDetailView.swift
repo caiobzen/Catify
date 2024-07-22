@@ -1,6 +1,7 @@
 import SwiftUI
 import CatifyDB
 import CatifyAPI
+import CatifyUI
 
 struct CatDetailView: View {
     
@@ -20,16 +21,11 @@ struct CatDetailView: View {
     var body: some View {
             List {
                 Section {
-                    AsyncImage(url: viewModel.cat.imageURL) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .border(.gray, width: 1)
-                            .cornerRadius(10)
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .padding()
+                    RemoteImage(url: viewModel.cat.imageURL)
+                        .scaledToFill()
+                        .border(.gray, width: 1)
+                        .cornerRadius(10)
+                        .padding()
                 }
                 
                 ForEach(viewModel.catInfoSections, id: \.header) { section in
