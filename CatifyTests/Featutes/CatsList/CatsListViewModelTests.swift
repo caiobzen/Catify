@@ -110,6 +110,22 @@ final class CatsListViewModelTests: XCTestCase {
             viewModel.allImageItems.count
         )
     }
+    
+    func test_whenFilteringForFavorites_itShouldDisplayTheDetailText() {
+        
+        // Arrange, Act
+        viewModel = CatsListViewModel(
+            repository: CatsRepository(
+                clientAPI: apiMock,
+                dataBase: dataBaseMock
+            ),
+            filter: .favorites,
+            imageItems: imageItemsMock
+        )
+        
+        // Assert
+        XCTAssertTrue(viewModel.shouldShowDetailText)
+    }
 }
 
 extension CatsListViewModelTests {

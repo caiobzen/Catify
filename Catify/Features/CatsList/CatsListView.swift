@@ -26,7 +26,7 @@ struct CatsListView: View {
                 ImageItemListView(
                     imageItems: viewModel.imageItems,
                     didShowLastItem: { fetchData() },
-                    showDetailText: viewModel.filter == .favorites,
+                    showDetailText: viewModel.shouldShowDetailText,
                     didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
                     didTapItem: { onItemSelected?($0) }
                 )

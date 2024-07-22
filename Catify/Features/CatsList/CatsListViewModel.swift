@@ -79,4 +79,6 @@ class CatsListViewModel {
             fetchFavoriteCats()
         }
     }
+    
+    var shouldShowDetailText: Bool { filter == .favorites }
 }
