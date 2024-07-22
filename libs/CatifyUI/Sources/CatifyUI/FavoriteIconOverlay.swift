@@ -32,7 +32,7 @@ struct FavoriteIconOverlay: View {
                         .clipShape(Circle())
                 }
             }
-            .padding()
+            .padding(4)
             Spacer()
         }
     }

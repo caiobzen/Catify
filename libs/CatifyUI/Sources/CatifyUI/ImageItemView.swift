@@ -3,7 +3,10 @@ import SwiftUI
 struct ImageItemView: View {
     
     private enum Constants {
-        static let imageSize: CGSize = .init(width: 100, height: 100)
+        static let imageSize: CGSize = .init(
+            width: (UIScreen.main.bounds.width / 3) - 16,
+            height: 100
+        )
         static let cornerRadius: CGFloat = 10
     }
     
