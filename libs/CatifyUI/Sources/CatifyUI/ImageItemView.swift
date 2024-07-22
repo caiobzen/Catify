@@ -8,6 +8,7 @@ struct ImageItemView: View {
             height: 100
         )
         static let cornerRadius: CGFloat = 10
+        static let textMinHeight: CGFloat = 32
     }
     
     let item: ImageItem
@@ -25,11 +26,18 @@ struct ImageItemView: View {
                 .cornerRadius(Constants.cornerRadius)
             
             Text(item.text)
-                .frame(maxWidth: .infinity)
+                .frame(
+                    maxWidth: .infinity,
+                    minHeight: Constants.textMinHeight
+                )
             
             if showDetailText {
-                Text(item.detailText)
-                    .frame(maxWidth: .infinity)
+                HStack {
+                    Text(item.detailText)
+                        .font(.footnote)
+                        .frame(maxWidth: .infinity)
+                    Spacer()
+                }
             }
         }
     }

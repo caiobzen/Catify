@@ -10,7 +10,9 @@ extension Cat: ImageItem {
     }
     
     public var text: String { self.breedName ?? Constants.unknown }
-    public var detailText: String { self.averageLifespan }
+    public var detailText: String {
+        "Avg. Lifespan:\n\(self.averageLifespan)"
+    }
     public var imageURL: URL { self.image ?? URL(string: Constants.fallbackImageURL)! }
 }
 

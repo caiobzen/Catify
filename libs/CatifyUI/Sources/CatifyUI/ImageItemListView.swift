@@ -48,7 +48,9 @@ public struct ImageItemListView: View {
                                     didShowLastItem?()
                                 }
                             }
-                    }.onTapGesture { didTapItem?(item.id) }
+                    }
+                    .padding(.vertical)
+                    .onTapGesture { didTapItem?(item.id) }
                 }
             }
             .padding()
