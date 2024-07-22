@@ -13,6 +13,8 @@ struct CatsListView: View {
          onItemSelected: ((String) -> ())? = nil) {
         self.viewModel = viewModel
         self.onItemSelected = onItemSelected
+        
+        Task { await viewModel.fetchData() }
     }
     
     var body: some View {
@@ -30,7 +32,6 @@ struct CatsListView: View {
                     didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
                     didTapItem: { onItemSelected?($0) }
                 )
-                .onAppear(perform: fetchData)
                 
                 if viewModel.isFetching {
                     VStack {

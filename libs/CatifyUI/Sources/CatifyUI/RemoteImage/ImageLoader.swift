@@ -13,6 +13,7 @@ class ImageLoader {
         }
     }
 
+    @MainActor
     private func loadImage() async {
         if let cachedImage = ImageCache.shared.get(forKey: url.absoluteString) {
             self.image = cachedImage
