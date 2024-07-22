@@ -18,32 +18,39 @@ struct CatsListView: View {
     }
     
     var body: some View {
+        
         VStack {
-            SearchBar(queryString: Binding(
-                get: { viewModel.searchQuery } ,
-                set: { viewModel.searchQuery = $0 })
-            )
-            
-            ZStack {
-                ImageItemListView(
-                    imageItems: viewModel.imageItems,
-                    didShowLastItem: { fetchData() },
-                    showDetailText: viewModel.isFilteringByFavorites,
-                    didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
-                    didTapItem: { onItemSelected?($0) }
-                )
-                .onAppear {
-                    if viewModel.isFilteringByFavorites {
-                        fetchData()
+            if viewModel.imageItems.isEmpty {
+                ContentUnavailableView("There are no cats to list", systemImage: "cat")
+            } else {
+                VStack {
+                    SearchBar(queryString: Binding(
+                        get: { viewModel.searchQuery } ,
+                        set: { viewModel.searchQuery = $0 })
+                    )
+                    
+                    ZStack {
+                        ImageItemListView(
+                            imageItems: viewModel.imageItems,
+                            didShowLastItem: { fetchData() },
+                            showDetailText: viewModel.isFilteringByFavorites,
+                            didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
+                            didTapItem: { onItemSelected?($0) }
+                        )
+                        
+                        if viewModel.isFetching {
+                            VStack {
+                                Spacer()
+                                LoadingMoreView(text: "Fetching More Cats... ")
+                            }
+                        }
                     }
                 }
-                
-                if viewModel.isFetching {
-                    VStack {
-                        Spacer()
-                        LoadingMoreView(text: "Fetching More Cats... ")
-                    }
-                }
+            }
+        }
+        .onAppear {
+            if viewModel.isFilteringByFavorites {
+                fetchData()
             }
         }
     }
