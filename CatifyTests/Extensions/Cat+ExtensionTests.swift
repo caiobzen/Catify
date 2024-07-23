@@ -9,7 +9,7 @@ final class Cat_ExtensionTests: XCTestCase {
         let cat = makeCatWith(lifespan: nil)
         
         // Act, Assert
-        XCTAssertEqual(cat.detailText, "Unknown")
+        XCTAssertEqual(cat.detailText, "Avg. Lifespan:\nUnknown")
     }
     
     func test_givenInvalidLifespan_ItReturnsAFallbackText() {
@@ -18,7 +18,7 @@ final class Cat_ExtensionTests: XCTestCase {
         let cat = makeCatWith(lifespan: "1 - 5 - 7")
         
         // Act, Assert
-        XCTAssertEqual(cat.detailText, "Unknown")
+        XCTAssertEqual(cat.detailText, "Avg. Lifespan:\nUnknown")
     }
     
     func test_givenValidLifespanRange_ItReturnsTheAverageLifespan() {
@@ -27,7 +27,7 @@ final class Cat_ExtensionTests: XCTestCase {
         let cat = makeCatWith(lifespan: "15 - 17")
         
         // Act, Assert
-        XCTAssertEqual(cat.detailText, "16 years")
+        XCTAssertEqual(cat.detailText, "Avg. Lifespan:\n16 years")
     }
 }
 

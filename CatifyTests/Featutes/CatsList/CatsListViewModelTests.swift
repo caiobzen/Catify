@@ -20,6 +20,8 @@ final class CatsListViewModelTests: XCTestCase {
             ),
             imageItems: imageItemsMock
         )
+        
+        UserDefaults.standard.setValue(0, forKey: "page")
     }
     
     func test_onFetchCats_imageItemsGetsPopulated() async {
@@ -47,7 +49,7 @@ final class CatsListViewModelTests: XCTestCase {
         await viewModel.fetchData()
         
         // Assert
-        XCTAssertEqual(apiMock.requestedPage, 2)
+        XCTAssertEqual(apiMock.requestedPage, 1)
     }
     
     func test_whenSeachingWithEmptyString_itDisplaysAllImageItems() {
@@ -124,7 +126,7 @@ final class CatsListViewModelTests: XCTestCase {
         )
         
         // Assert
-        XCTAssertTrue(viewModel.shouldShowDetailText)
+        XCTAssertTrue(viewModel.isFilteringByFavorites)
     }
 }
 

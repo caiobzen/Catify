@@ -14,7 +14,10 @@ class CatsListViewModel {
     private let repository: CatsRepository
     private(set) var allImageItems: [ImageItem] = []
     private(set) var imageItems: [ImageItem] = []
-    private var page = 1
+    private var page: Int {
+        get { UserDefaults.standard.integer(forKey: "page") }
+        set { UserDefaults.standard.setValue(newValue, forKey: "page") }
+    }
     var isFetching = false
     let filter: CatsFilter
     var searchQuery = "" {
