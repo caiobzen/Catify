@@ -3,11 +3,11 @@ import XCTest
 
 final class ImageCacheTests: XCTestCase {
 
-    func testSharedInstance() {
+    func test_sharedInstance() {
         XCTAssertNotNil(ImageCache.shared)
     }
 
-    func testSetAndGetImage() {
+    func test_setAndGetImage() {
         
         // Arrange
         let imageCache = ImageCache.shared
@@ -21,7 +21,7 @@ final class ImageCacheTests: XCTestCase {
         XCTAssertEqual(testImage, imageCache.get(forKey: testKey))
     }
 
-    func testGetNonExistentImage() {
+    func test_getNonExistentImage() {
         
         // Arrange
         let nonExistentKey = "nonExistentKey"
@@ -33,8 +33,12 @@ final class ImageCacheTests: XCTestCase {
         XCTAssertNil(retrievedImage)
     }
 
-    func testCacheCountLimit() {
+    func test_cacheCountLimit() {
         
         XCTAssertEqual(ImageCache.shared.cache.countLimit, 50)
+    }
+    
+    func test_itSetsPlaceholderImage_whenTheresNoImageCached() {
+        
     }
 }

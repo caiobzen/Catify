@@ -1,6 +1,11 @@
 import UIKit
 
-class ImageCache {
+protocol ImageCacheProtocol {
+    func get(forKey key: String) -> UIImage?
+    func set(_ image: UIImage, forKey key: String)
+}
+
+class ImageCache: ImageCacheProtocol {
 
     static let shared = ImageCache()
     
