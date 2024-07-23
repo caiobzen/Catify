@@ -20,7 +20,7 @@ struct CatsListView: View {
     var body: some View {
         
         ZStack {
-            if viewModel.imageItems.isEmpty {
+            if viewModel.imageItems.isEmpty && viewModel.searchQuery.isEmpty {
                 ContentUnavailableView("There are no cats to list", systemImage: "cat")
             } else {
                 VStack {
@@ -29,13 +29,17 @@ struct CatsListView: View {
                         set: { viewModel.searchQuery = $0 })
                     )
                     
-                    ImageItemListView(
-                        imageItems: viewModel.imageItems,
-                        didShowLastItem: { fetchData() },
-                        showDetailText: viewModel.isFilteringByFavorites,
-                        didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
-                        didTapItem: { onItemSelected?($0) }
-                    )
+                    if viewModel.imageItems.isEmpty {
+                        ContentUnavailableView("No breed named \"\(viewModel.searchQuery)\"", systemImage: "cat")
+                    } else {
+                        ImageItemListView(
+                            imageItems: viewModel.imageItems,
+                            didShowLastItem: { fetchData() },
+                            showDetailText: viewModel.isFilteringByFavorites,
+                            didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
+                            didTapItem: { onItemSelected?($0) }
+                        ).accessibilityLabel("ImageItemListView")
+                    }
                 }
             }
             if viewModel.isFetching {
