@@ -19,7 +19,7 @@ struct CatsListView: View {
     
     var body: some View {
         
-        VStack {
+        ZStack {
             if viewModel.imageItems.isEmpty {
                 ContentUnavailableView("There are no cats to list", systemImage: "cat")
             } else {
@@ -37,14 +37,13 @@ struct CatsListView: View {
                             didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
                             didTapItem: { onItemSelected?($0) }
                         )
-                        
-                        if viewModel.isFetching {
-                            VStack {
-                                Spacer()
-                                LoadingMoreView(text: "Fetching More Cats... ")
-                            }
-                        }
                     }
+                }
+            }
+            if viewModel.isFetching {
+                VStack {
+                    Spacer()
+                    LoadingMoreView(text: "Loading... ")
                 }
             }
         }
