@@ -22,15 +22,15 @@ class CatifyDataBaseMock: CatifyDataBaseProtocol {
             isFavorite: false)
     ]
     
-    func fetchCats(favoritesOnly: Bool) -> [CatifyDB.Cat] {
+    func fetchCats(favoritesOnly: Bool) -> [Cat] {
         favoritesOnly ? cats.filter { $0.isFavorite } : cats
     }
-    func insert(cat: CatifyDB.Cat) { cats.append(cat) }
+    func insert(cat: Cat) { cats.append(cat) }
     func deleteAllCats() { cats.removeAll() }
     func toggleFavorite(catId: String) {
         (cats.first { $0.id == catId })?.isFavorite.toggle()
     }
-    func fetchCatWith(id: String) -> CatifyDB.Cat? {
+    func fetchCatWith(id: String) -> Cat? {
         (cats.first { $0.id == id })
     }
 }

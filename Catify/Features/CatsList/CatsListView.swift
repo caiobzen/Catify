@@ -43,8 +43,17 @@ struct CatsListView: View {
             if viewModel.isFetching {
                 VStack {
                     Spacer()
-                    LoadingMoreView(text: "Loading... ")
+                    PillView(text: "Loading... ", showProgress: true)
                 }
+            }
+            else if let errorMessage = viewModel.errorMessage {
+                VStack {
+                    Spacer()
+                    PillView(text: "\(errorMessage) | Tap to retry") {
+                        fetchData()
+                    }
+                }
+                
             }
         }
         .onAppear {

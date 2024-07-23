@@ -8,7 +8,6 @@ class CatsRepository {
     private enum Constants {
         static let limitPerPage = 15
     }
-    
     private let clientAPI: CatifyAPIProtocol
     private let dataBase: CatifyDataBaseProtocol
     
@@ -18,7 +17,7 @@ class CatsRepository {
         self.dataBase = dataBase
     }
     
-    func fetchRemoteCats(page: Int) async {
+    func fetchRemoteCats(page: Int) async throws {
         do {
             let catImages = try await clientAPI.fetchCatImages(
                 size: .thumb,
@@ -30,7 +29,7 @@ class CatsRepository {
             )
             saveCats(catImages)
         } catch {
-            print("error \(error.localizedDescription)")
+           throw error
         }
     }
     

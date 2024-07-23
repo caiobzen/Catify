@@ -20,6 +20,7 @@ class CatsListViewModel {
     }
     var isFetching = false
     let filter: CatsFilter
+    var errorMessage: String? = nil
     var searchQuery = "" {
         didSet {
             filterItems()
@@ -50,14 +51,17 @@ class CatsListViewModel {
     
     func fetchRemoteCats() async {
         guard !isFetching else { return }
-    
-        isFetching = true
-
-        await repository.fetchRemoteCats(page: page)
-        page += 1
-        imageItems = repository.fetchLocalCats()
-        allImageItems = imageItems
         
+        isFetching = true
+        do {
+            try await repository.fetchRemoteCats(page: page)
+            page += 1
+            imageItems = repository.fetchLocalCats()
+            allImageItems = imageItems
+            errorMessage = nil
+        } catch {
+            errorMessage = (error as? APIClientError)?.message
+        }
         isFetching = false
     }
     

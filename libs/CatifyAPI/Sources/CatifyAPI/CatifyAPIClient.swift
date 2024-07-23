@@ -48,9 +48,16 @@ public struct CatifyAPIClient: CatifyAPIProtocol {
                                                     from: result.0)
             return response
         } catch {
-            throw APIClientError.errorFetchingData
+            if let error = error as? URLError {
+                switch error.code {
+                case .networkConnectionLost:
+                    throw APIClientError.noInternetConnection
+                default:
+                    throw APIClientError.errorFetchingData
+                }
+            } else {
+                throw APIClientError.genericError
+            }
         }
     }
 }
-
-public struct FetchCatsResponse: Decodable { }

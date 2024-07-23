@@ -26,7 +26,6 @@ struct CatifyApp: App {
                             filter: .all
                         ),
                         onItemSelected: { catId in
-                            print(catId)
                             path.append(catId)
                         }
                     )
@@ -43,7 +42,6 @@ struct CatifyApp: App {
                             filter: .favorites
                         ),
                         onItemSelected: { catId in
-                            print(catId)
                             path.append(catId)
                         }
                     )
