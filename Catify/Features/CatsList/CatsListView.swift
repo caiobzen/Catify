@@ -31,6 +31,7 @@ struct CatsListView: View {
                     
                     if viewModel.imageItems.isEmpty {
                         ContentUnavailableView("No breed named \"\(viewModel.searchQuery)\"", systemImage: "cat")
+                            .accessibilityIdentifier("NoBreedResults")
                     } else {
                         ImageItemListView(
                             imageItems: viewModel.imageItems,
@@ -38,7 +39,7 @@ struct CatsListView: View {
                             showDetailText: viewModel.isFilteringByFavorites,
                             didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
                             didTapItem: { onItemSelected?($0) }
-                        ).accessibilityLabel("ImageItemListView")
+                        ).accessibilityIdentifier("ImageItemListView")
                     }
                 }
             }

@@ -27,6 +27,7 @@ public struct SearchBar: View {
     public var body: some View {
         HStack {
             TextField("Search...", text: $queryString)
+                .accessibilityLabel("SearchTextField")
                 .padding(.vertical, Constants.TextField.verticalPadding)
                 .padding(.horizontal, Constants.TextField.horizontalPadding)
                 .background(Color(.systemGray6))

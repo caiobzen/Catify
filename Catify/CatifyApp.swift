@@ -46,7 +46,7 @@ struct CatifyApp: App {
                         }
                     )
                     .tabItem {
-                        Label("Favotites", systemImage: "star")
+                        Label("Favorites", systemImage: "star")
                     }
                 }
                 .navigationTitle("Catify")

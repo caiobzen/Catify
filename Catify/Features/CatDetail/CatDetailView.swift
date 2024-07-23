@@ -26,6 +26,7 @@ struct CatDetailView: View {
                         .border(.gray, width: 1)
                         .cornerRadius(10)
                         .padding()
+                        .accessibilityIdentifier("CatImage")
                 }
                 
                 ForEach(viewModel.catInfoSections, id: \.header) { section in
@@ -43,7 +44,9 @@ struct CatDetailView: View {
                     Image(systemName: viewModel.cat.isFavorite
                           ? Constants.Assets.starFill
                           : Constants.Assets.star)
+                    
                 }
+                .accessibilityIdentifier("FavoriteButton")
             }
         .navigationTitle(viewModel.cat.breedName ?? "")
     }

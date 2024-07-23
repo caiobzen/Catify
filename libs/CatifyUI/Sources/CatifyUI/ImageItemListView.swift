@@ -36,21 +36,20 @@ public struct ImageItemListView: View {
             LazyVGrid(columns: columns,
                       spacing: Constants.spacing) {
                 ForEach(imageItems, id: \.id) { item in
-                    ZStack {
-                        ImageItemView(item: item, showDetailText: showDetailText)
-                            .overlay {
-                                FavoriteIconOverlay(isFavorite: item.isFavorite) {
-                                    didToggleFavorite?(item.id)
-                                }
+                    ImageItemView(item: item, showDetailText: showDetailText)
+                        .accessibilityIdentifier("ImageItemView")
+                        .overlay {
+                            FavoriteIconOverlay(isFavorite: item.isFavorite) {
+                                didToggleFavorite?(item.id)
                             }
-                            .onAppear {
-                                if item.id == imageItems.last?.id {
-                                    didShowLastItem?()
-                                }
+                        }
+                        .onAppear {
+                            if item.id == imageItems.last?.id {
+                                didShowLastItem?()
                             }
-                    }
-                    .padding(.vertical)
-                    .onTapGesture { didTapItem?(item.id) }
+                        }
+                        .padding(.vertical)
+                        .onTapGesture { didTapItem?(item.id) }
                 }
             }
             .padding()

@@ -24,6 +24,7 @@ struct ImageItemView: View {
                 )
                 .clipped()
                 .cornerRadius(Constants.cornerRadius)
+                .accessibilityIdentifier("CatImage")
             
             Text(item.text)
                 .frame(

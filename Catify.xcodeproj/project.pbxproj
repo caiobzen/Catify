@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA0F44292C5046CC0008A6FF /* CatifyRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F44282C5046CC0008A6FF /* CatifyRobot.swift */; };
 		BA21DC8B2C4AB83600659703 /* CatifyDataBaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21DC8A2C4AB83600659703 /* CatifyDataBaseMock.swift */; };
 		BA8810B82C4C748A003C54C3 /* CatsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810B72C4C748A003C54C3 /* CatsRepository.swift */; };
 		BA8810BC2C4DA920003C54C3 /* Cat+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8810BB2C4DA920003C54C3 /* Cat+ExtensionTests.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA0F44282C5046CC0008A6FF /* CatifyRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyRobot.swift; sourceTree = "<group>"; };
 		BA21DC8A2C4AB83600659703 /* CatifyDataBaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatifyDataBaseMock.swift; sourceTree = "<group>"; };
 		BA21DC8C2C4AC22300659703 /* Catify.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Catify.xctestplan; sourceTree = "<group>"; };
 		BA8810B72C4C748A003C54C3 /* CatsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsRepository.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA0F442A2C5047200008A6FF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				BA0F44282C5046CC0008A6FF /* CatifyRobot.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		BA8810BA2C4DA909003C54C3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +219,7 @@
 		BA9D78512C494DA000A8A1C7 /* CatifyUITests */ = {
 			isa = PBXGroup;
 			children = (
+				BA0F442A2C5047200008A6FF /* Screens */,
 				BA9D78522C494DA000A8A1C7 /* CatifyUITests.swift */,
 			);
 			path = CatifyUITests;
@@ -422,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA9D78532C494DA000A8A1C7 /* CatifyUITests.swift in Sources */,
+				BA0F44292C5046CC0008A6FF /* CatifyRobot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
