@@ -128,6 +128,18 @@ final class CatsListViewModelTests: XCTestCase {
         // Assert
         XCTAssertTrue(viewModel.isFilteringByFavorites)
     }
+    
+    func test_whenTheresANetworkError_itLoadsLocalCats() async {
+        
+        // Arrange
+        apiMock.error = .errorFetchingData
+        
+        // Act
+        await viewModel.fetchData()
+        
+        // Assert
+        XCTAssertTrue(dataBaseMock.didFetchCats)
+    }
 }
 
 extension CatsListViewModelTests {

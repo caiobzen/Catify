@@ -29,15 +29,13 @@ struct CatsListView: View {
                         set: { viewModel.searchQuery = $0 })
                     )
                     
-                    ZStack {
-                        ImageItemListView(
-                            imageItems: viewModel.imageItems,
-                            didShowLastItem: { fetchData() },
-                            showDetailText: viewModel.isFilteringByFavorites,
-                            didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
-                            didTapItem: { onItemSelected?($0) }
-                        )
-                    }
+                    ImageItemListView(
+                        imageItems: viewModel.imageItems,
+                        didShowLastItem: { fetchData() },
+                        showDetailText: viewModel.isFilteringByFavorites,
+                        didToggleFavorite: { viewModel.toggleFavorite(for: $0) },
+                        didTapItem: { onItemSelected?($0) }
+                    )
                 }
             }
             if viewModel.isFetching {
@@ -49,11 +47,10 @@ struct CatsListView: View {
             else if let errorMessage = viewModel.errorMessage {
                 VStack {
                     Spacer()
-                    PillView(text: "\(errorMessage) | Tap to retry") {
+                    PillView(text: "\(errorMessage)\nTap to retry") {
                         fetchData()
                     }
                 }
-                
             }
         }
         .onAppear {

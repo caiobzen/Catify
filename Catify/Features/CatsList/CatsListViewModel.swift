@@ -61,6 +61,8 @@ class CatsListViewModel {
             errorMessage = nil
         } catch {
             errorMessage = (error as? APIClientError)?.message
+            imageItems = repository.fetchLocalCats(favoritesOnly: filter == .favorites)
+            allImageItems = imageItems
         }
         isFetching = false
     }

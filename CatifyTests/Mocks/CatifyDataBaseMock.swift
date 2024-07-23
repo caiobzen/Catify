@@ -3,6 +3,8 @@ import Foundation
 
 class CatifyDataBaseMock: CatifyDataBaseProtocol {
     
+    var didFetchCats = false
+    
     var cats: [Cat] = [
         Cat(id: "1",
             image: nil,
@@ -23,7 +25,8 @@ class CatifyDataBaseMock: CatifyDataBaseProtocol {
     ]
     
     func fetchCats(favoritesOnly: Bool) -> [Cat] {
-        favoritesOnly ? cats.filter { $0.isFavorite } : cats
+        didFetchCats = true
+        return favoritesOnly ? cats.filter { $0.isFavorite } : cats
     }
     func insert(cat: Cat) { cats.append(cat) }
     func deleteAllCats() { cats.removeAll() }
