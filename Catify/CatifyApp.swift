@@ -6,6 +6,17 @@ import CatifyUI
 @main
 struct CatifyApp: App {
     
+    private enum Constants {
+        enum Tab {
+            static let cats = "Cats"
+            static let favorites = "Favorites"
+        }
+        enum Asset {
+            static let cat = "cat"
+            static let star = "star"
+        }
+    }
+    
     private let core = AppCore()
     @State private var path = [String]()
     
@@ -30,7 +41,7 @@ struct CatifyApp: App {
                         }
                     )
                     .tabItem {
-                        Label("Cats", systemImage: "cat")
+                        Label(Constants.Tab.cats, systemImage: Constants.Asset.cat)
                     }
                     
                     CatsListView(
@@ -46,7 +57,7 @@ struct CatifyApp: App {
                         }
                     )
                     .tabItem {
-                        Label("Favorites", systemImage: "star")
+                        Label(Constants.Tab.favorites, systemImage: Constants.Asset.star)
                     }
                 }
                 .navigationTitle("Catify")
