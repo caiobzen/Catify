@@ -40,7 +40,8 @@ Extras:
 
 ## 🧱 High Level Architecture Diagram
 
-![high_level_architecture](https://github.com/user-attachments/assets/7dc30c01-7186-43ad-b7a7-274022702405)
+![image](https://github.com/user-attachments/assets/3b69a8cb-2a91-495c-aed0-190410d190c0)
+
 
 ## 📱 App Images
 
