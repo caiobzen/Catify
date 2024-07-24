@@ -8,12 +8,8 @@ struct CatifyApp: App {
     
     private enum Constants {
         enum Tab {
-            static let cats = "Cats"
-            static let favorites = "Favorites"
-        }
-        enum Asset {
-            static let cat = "cat"
-            static let star = "star"
+            static let cats = ("Cats", "cat")
+            static let favorites = ("Favorites", "star")
         }
     }
     
@@ -41,7 +37,7 @@ struct CatifyApp: App {
                         }
                     )
                     .tabItem {
-                        Label(Constants.Tab.cats, systemImage: Constants.Asset.cat)
+                        Label(Constants.Tab.cats.0, systemImage: Constants.Tab.cats.1)
                     }
                     
                     CatsListView(
@@ -57,7 +53,7 @@ struct CatifyApp: App {
                         }
                     )
                     .tabItem {
-                        Label(Constants.Tab.favorites, systemImage: Constants.Asset.star)
+                        Label(Constants.Tab.favorites.0, systemImage: Constants.Tab.favorites.1)
                     }
                 }
                 .navigationTitle("Catify")
