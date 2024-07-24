@@ -30,6 +30,7 @@ struct FavoriteIconOverlay: View {
                         .padding(Constants.Icon.padding)
                         .background(Color.white.opacity(Constants.Icon.backgroundOpacity))
                         .clipShape(Circle())
+                        .tint(.black)
                         .accessibilityLabel("FavoriteButton")
                 }
             }
