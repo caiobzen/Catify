@@ -62,7 +62,7 @@ struct CatifyApp: App {
                     )
                 }
             }
-            .tint(.black)
+            .tint(.primary)
         }
     }
 }
