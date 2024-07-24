@@ -140,6 +140,34 @@ final class CatsListViewModelTests: XCTestCase {
         // Assert
         XCTAssertTrue(dataBaseMock.didFetchCats)
     }
+    
+    func test_onAppear_itLoadsDataForFavoritesFilter() async {
+        
+        // Arrange
+        viewModel = CatsListViewModel(
+            repository: CatsRepository(
+                clientAPI: apiMock,
+                dataBase: dataBaseMock
+            ),
+            filter: .favorites,
+            imageItems: imageItemsMock
+        )
+        
+        // Act
+        viewModel.fetchDataOnAppear()
+        
+        // Assert
+        XCTAssertTrue(dataBaseMock.didFetchCats)
+    }
+    
+    func test_onAppear_itDoesntLoadDataForAllCatsFilter() async {
+
+        // Arrange, Act
+        viewModel.fetchDataOnAppear()
+        
+        // Assert
+        XCTAssertFalse(dataBaseMock.didFetchCats)
+    }
 }
 
 extension CatsListViewModelTests {

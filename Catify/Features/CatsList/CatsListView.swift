@@ -59,9 +59,7 @@ struct CatsListView: View {
             }
         }
         .onAppear {
-            if viewModel.isFilteringByFavorites {
-                fetchData()
-            }
+            viewModel.fetchDataOnAppear()
         }
     }
     

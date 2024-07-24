@@ -49,6 +49,15 @@ class CatsListViewModel {
         }
     }
     
+    func fetchDataOnAppear() {
+        switch filter {
+        case .all:
+            break;
+        case .favorites:
+            fetchFavoriteCats()
+        }
+    }
+    
     func fetchRemoteCats() async {
         guard !isFetching else { return }
         
