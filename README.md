@@ -42,3 +42,13 @@ Extras:
 
 ![high_level_architecture](https://github.com/user-attachments/assets/7dc30c01-7186-43ad-b7a7-274022702405)
 
+## 📱 App Images
+
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/335a402a-a606-4a3f-a678-22a287b2567f">
+<img width="424" alt="image" src="https://github.com/user-attachments/assets/bd879ee5-9f11-490b-a0e2-45cb79157b42">
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/11f2d43d-928b-49a5-9bd3-2e82b180de35">
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/7c3e2967-c9a0-4c8c-9136-db087f91b992">
+
+
+
+
