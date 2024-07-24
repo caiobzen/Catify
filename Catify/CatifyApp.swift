@@ -7,6 +7,7 @@ import CatifyUI
 struct CatifyApp: App {
     
     private enum Constants {
+        static let appName = "Catify"
         enum Tab {
             static let cats = ("Cats", "cat")
             static let favorites = ("Favorites", "star")
@@ -56,7 +57,7 @@ struct CatifyApp: App {
                         Label(Constants.Tab.favorites.0, systemImage: Constants.Tab.favorites.1)
                     }
                 }
-                .navigationTitle("Catify")
+                .navigationTitle(Constants.appName)
                 .navigationDestination(for: String.self) { catId in
                     CatDetailView(
                         viewModel: CatDetailViewModel(
