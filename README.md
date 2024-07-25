@@ -1,9 +1,11 @@
 # Catify
-Who loves cats? 🙀
+![appIcon_small](https://github.com/user-attachments/assets/bbd5f4df-7a8a-4a61-9507-469981f89a6c)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/c9b642e5b68190faf046/maintainability)](https://codeclimate.com/github/caiobzen/Catify/maintainability)
 
-## 🏁 Project TODO List:
+---
+
+# 🏁 Project TODO List:
 
 - [x] A screen with a list of cat breeds, with the following info:
     <br>Cat image
@@ -37,13 +39,16 @@ Extras:
 - [x] UITests
 - [x] Update Project Documentation / Add Code Climate
 
+---
 
-## 🧱 High Level Architecture Diagram
+
+# 🧱 High Level Architecture Diagram
 
 ![image](https://github.com/user-attachments/assets/3b69a8cb-2a91-495c-aed0-190410d190c0)
 
+---
 
-## 📱 App Images
+# 📱 App Images
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/335a402a-a606-4a3f-a678-22a287b2567f">
 <img width="424" alt="image" src="https://github.com/user-attachments/assets/bd879ee5-9f11-490b-a0e2-45cb79157b42">
