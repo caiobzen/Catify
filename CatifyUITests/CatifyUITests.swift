@@ -1,4 +1,5 @@
 import XCTest
+@testable import CatifyDB
 
 final class CatifyUITests: XCTestCase {
     
@@ -9,6 +10,7 @@ final class CatifyUITests: XCTestCase {
         let app = XCUIApplication()
         robot = CatifyRobot(app: XCUIApplication())
         app.launch()
+        Task { try? await CatifyDataBase().deleteAllCats() }
         robot.waitCatsListToAppear()
     }
     
