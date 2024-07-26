@@ -31,6 +31,7 @@
 		BAA0F4352C49D325002FF10F /* CatifyAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA0F4342C49D325002FF10F /* CatifyAPIMock.swift */; };
 		BAA0F4372C49D625002FF10F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA0F4362C49D625002FF10F /* README.md */; };
 		BAB3538E2C4AAE8E005FE82A /* CatifyDB in Frameworks */ = {isa = PBXBuildFile; productRef = BAB3538D2C4AAE8E005FE82A /* CatifyDB */; };
+		BAF830A22C53DD3F00B5D66B /* CatifyDB in Frameworks */ = {isa = PBXBuildFile; productRef = BAF830A12C53DD3F00B5D66B /* CatifyDB */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAF830A22C53DD3F00B5D66B /* CatifyDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +320,9 @@
 				BA9D78502C494DA000A8A1C7 /* PBXTargetDependency */,
 			);
 			name = CatifyUITests;
+			packageProductDependencies = (
+				BAF830A12C53DD3F00B5D66B /* CatifyDB */,
+			);
 			productName = CatifyUITests;
 			productReference = BA9D784E2C494DA000A8A1C7 /* CatifyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -768,6 +773,10 @@
 			productName = CatifyUI;
 		};
 		BAB3538D2C4AAE8E005FE82A /* CatifyDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CatifyDB;
+		};
+		BAF830A12C53DD3F00B5D66B /* CatifyDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CatifyDB;
 		};

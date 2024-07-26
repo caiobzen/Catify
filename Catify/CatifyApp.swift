@@ -71,6 +71,18 @@ struct CatifyApp: App {
                 }
             }
             .tint(.primary)
+            .onAppear {
+                setupForUITestingIfNeeded()
+            }
+        }
+    }
+    
+    // MARK: - UITesting setup
+    private func setupForUITestingIfNeeded() {
+        if ProcessInfo.processInfo.arguments.contains("UITesting") {
+            UserDefaults.standard.setValue(0, forKey: "page")
+            core.dataBase.deleteAllCats()
         }
     }
 }
+

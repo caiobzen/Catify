@@ -3,11 +3,12 @@ import XCTest
 final class CatifyUITests: XCTestCase {
     
     var robot: CatifyRobot!
-     
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
         let app = XCUIApplication()
         robot = CatifyRobot(app: XCUIApplication())
+        app.launchArguments.append("UITesting")
         app.launch()
         robot.waitCatsListToAppear()
     }
