@@ -1,16 +1,14 @@
 import XCTest
-@testable import CatifyDB
 
 final class CatifyUITests: XCTestCase {
     
     var robot: CatifyRobot!
-    
+     
     override func setUpWithError() throws {
         continueAfterFailure = false
         let app = XCUIApplication()
         robot = CatifyRobot(app: XCUIApplication())
         app.launch()
-        Task { try? await CatifyDataBase().deleteAllCats() }
         robot.waitCatsListToAppear()
     }
     
